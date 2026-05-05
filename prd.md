@@ -209,47 +209,88 @@ Same system, two runs, two meaningfully different outputs.
 - Ethical risk: over-reliance on the tool in place of clinical judgment. Mitigation: ECHO is framed as decision support, not decision-making. All language is "consider screening for" — not "diagnose."
 - What would make a CNM recommend it: speed + specificity. If the checklist saves 15 minutes and catches one thing she would have missed, she will tell a colleague.
 
----Closed Questions 
+# ECHO v2 Decisions
 
-1. AWHONN POST-BIRTH licensing
-Decision: Skipped for v2. Not in the pipeline.
+## 1. AWHONN POST-BIRTH Licensing
+
+**Decision:** Skipped for v2. Not in the pipeline.
+
 We already replaced this with CDC Hear Her warning signs, which is public domain and government-produced. AWHONN POST-BIRTH content remains under AWHONN copyright and would require a license for use in a commercial tool. Skipping it eliminates the licensing risk.
-2. AWHONN SBARs (the related question that does affect us)
-Decision: Cannot embed AWHONN SBAR content directly in v2. Pivot the Option A plan.
+
+## 2. AWHONN SBARs (the related question that does affect us)
+
+**Decision:** Cannot embed AWHONN SBAR content directly in v2. Pivot the Option A plan.
+
 This is a finding. AWHONN's Terms of Use explicitly prohibit reproduction, copying, or republication of their materials in any commercial environment without written permission. The SBAR PDFs themselves carry "© Copyright 2023 by the Association of Women's Health, Obstetric and Neonatal Nurses." Their permissions page confirms individually purchased downloads are for "personal, informational, and non-commercial use only." A facility license starts at $300 per facility for the full RMC framework.
-What this means for our Option A plan: we cannot paste AWHONN SBAR text into ECHO output, even with attribution. That violates their terms.
-What we can still do without licensing:
 
-Cite AWHONN SBARs as a reference in the output, the same way a clinical handout cites a guideline ("Communication framing aligned to AWHONN Respectful Patient Care SBARs. See awhonn.org/awhonn-sbars for full text.")
-Write our own original framing copy grounded in publicly available evidence about respectful maternity care for specific populations, sourced from peer-reviewed literature, CDC guidance, and other public-domain materials.
-Pursue a license for v3 if the demo lands and we want to embed AWHONN content directly. Email permissions@awhonn.org.
+**What this means for our Option A plan:** we cannot paste AWHONN SBAR text into ECHO output, even with attribution. That violates their terms.
 
-Recommendation: Use the "cite as reference, write our own framing" approach for v2. The clinical value is preserved. The licensing risk is gone. The pitch story stays intact: ECHO's framing is grounded in evidence and points the CNM to AWHONN's authoritative resources for full guidance.
-3. Hospital not in CMS dataset
-Decision: locked. Bundle agent returns status: 'partial'. Display reads "Hospital commitment status: Not found in CMS dataset" with no score applied. Pipeline continues.
+**What we can still do without licensing:**
+
+- Cite AWHONN SBARs as a reference in the output, the same way a clinical handout cites a guideline ("Communication framing aligned to AWHONN Respectful Patient Care SBARs. See awhonn.org/awhonn-sbars for full text.")
+- Write our own original framing copy grounded in publicly available evidence about respectful maternity care for specific populations, sourced from peer-reviewed literature, CDC guidance, and other public-domain materials.
+- Pursue a license for v3 if the demo lands and we want to embed AWHONN content directly. Email permissions@awhonn.org.
+
+**Recommendation:** Use the "cite as reference, write our own framing" approach for v2. The clinical value is preserved. The licensing risk is gone. The pitch story stays intact: ECHO's framing is grounded in evidence and points the CNM to AWHONN's authoritative resources for full guidance.
+
+## 3. Hospital Not in CMS Dataset
+
+**Decision:** Locked. Bundle agent returns `status: 'partial'`. Display reads "Hospital commitment status: Not found in CMS dataset" with no score applied. Pipeline continues.
+
 This is the same fallback path I drew as N9 in the architecture diagram. Confirmed.
-4. Risk Synthesist conflict resolution
-Decision: locked. On contradictory subagent signals: confidence set to FLAGGED, SynthesistFlag created with flag_type = 'conflict', both data points preserved, orchestrator surfaces conflict to CNM. ECHO never resolves a clinical contradiction silently.
+
+## 4. Risk Synthesist Conflict Resolution
+
+**Decision:** Locked. On contradictory subagent signals: confidence set to FLAGGED, SynthesistFlag created with `flag_type = 'conflict'`, both data points preserved, orchestrator surfaces conflict to CNM. ECHO never resolves a clinical contradiction silently.
+
 This is exactly what was already in your project state. Confirmed.
-5. Demo Day login wall
-Decision: locked. Open access. No persistent PII. Revisit for production.
+
+## 5. Demo Day Login Wall
+
+**Decision:** Locked. Open access. No persistent PII. Revisit for production.
+
 Confirmed.
-6. NY and TX subagent data coverage
-Status: confirmed for all five. Inventory:
-SubagentNY coverageTX coverageMortalityNCHS national + NYSDOH state factsheetNCHS national + Cureus paper (TX-specific cites)GuidelineCDC, ACOG, AIM (federal, not state-specific)Same federal sources applySDOHCMS AHC HRSN (federal, applies everywhere)SameBundleNY HCAHPS, CMS Core Set NY 2023 (PPC-AD 82.4%), Birthing-FriendlyCMS Core Set TX 2023 (PPC-AD 77.4%), Birthing-FriendlyState ContextKFF (12-mo extension active), NYSDOH mental health, NNPQCKFF (12-mo extension active), TCHMB PPED, NNPQC
+
+## 6. NY and TX Subagent Data Coverage
+
+**Status:** Confirmed for all five. Inventory:
+
+| Subagent | NY coverage | TX coverage |
+|----------|-------------|-------------|
+| Mortality | NCHS national + NYSDOH state factsheet | NCHS national + Cureus paper (TX-specific cites) |
+| Guideline | CDC, ACOG, AIM (federal, not state-specific) | Same federal sources apply |
+| SDOH | CMS AHC HRSN (federal, applies everywhere) | Same |
+| Bundle | NY HCAHPS, CMS Core Set NY 2023 (PPC-AD 82.4%), Birthing-Friendly | CMS Core Set TX 2023 (PPC-AD 77.4%), Birthing-Friendly |
+| State Context | KFF (12-mo extension active), NYSDOH mental health, NNPQC | KFF (12-mo extension active), TCHMB PPED, NNPQC |
+
 Both states have real, audited, current data across all five subagents. Confirmed.
-7. Session persistence
-Decision: locked. Nothing persists after session ends. No database, no storage, no logging of patient parameters.
+
+## 7. Session Persistence
+
+**Decision:** Locked. Nothing persists after session ends. No database, no storage, no logging of patient parameters.
+
 Confirmed. This is the right answer for the open-access demo because it removes the HIPAA exposure entirely.
-8. ACOG 4th Trimester licensing
-Decision: usable in v2 with discipline. Selections under approximately 100 words with attribution do not require permission.
+
+## 8. ACOG 4th Trimester Licensing
+
+**Decision:** Usable in v2 with discipline. Selections under approximately 100 words with attribution do not require permission.
+
 ACOG's permissions policy: "Small selections of text (approximately 100 words) are being excerpted (with appropriate attribution to ACOG)" do not require permission. Anything larger does, and reproducing "all or most of a publication" is explicitly prohibited.
-What this means for ECHO: we can pull discrete components from ACOG Committee Opinion 736 (specific Box 1 line items, specific Table 1 entries) as long as each excerpt is short and attributed. We cannot reproduce whole sections or paraphrase large portions in a way that displaces the original.
+
+**What this means for ECHO:** we can pull discrete components from ACOG Committee Opinion 736 (specific Box 1 line items, specific Table 1 entries) as long as each excerpt is short and attributed. We cannot reproduce whole sections or paraphrase large portions in a way that displaces the original.
+
 The Subagent 2 implementation needs to enforce this: any ACOG-sourced finding in the checklist gets a hard cap on excerpt length and an inline attribution.
-9. Dashboard format
-Decision: locked. HTML for Demo Day.
+
+## 9. Dashboard Format
+
+**Decision:** Locked. HTML for Demo Day.
+
 Confirmed.
-10. Care team email layer ownership
-Status: not yet assigned. This is a v3 feature.
+
+## 10. Care Team Email Layer Ownership
+
+**Status:** Not yet assigned. This is a v3 feature.
+
 The care team email is N14 in the architecture diagram, drawn dashed because it is out of scope for v2. Assigning ownership now is premature because v3 scope has not been defined. My recommendation: park this question. Revisit after Demo Day when you know whether ECHO is moving to a v3 build.
+
 If you want to assign provisional ownership for planning purposes: Paula has the closest context on the orchestrator and would be the natural owner of an output-side email integration. But this is a soft signal, not a commitment.
