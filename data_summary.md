@@ -39,6 +39,8 @@ This is the data inventory for ECHO v2. One row per subagent. Each row tells you
 
 **Fallback:** None needed. Three federal and professional sources align.
 
+**Licensing constraint (ACOG):** ACOG's permissions policy allows excerpts under approximately 100 words with attribution, without requiring written permission. Reproducing whole sections or "most of a publication" is explicitly prohibited. Subagent 2 must enforce a per-finding excerpt cap on ACOG-sourced content and include inline attribution. CDC Hear Her and AIM materials are public domain and have no excerpt limit.
+
 ---
 
 ## Subagent 3: SDOH
@@ -108,16 +110,47 @@ NY consistently outperforms TX on postpartum care visit rates. This pairs with t
 
 ---
 
-## Open question for the team
+## Resolved: 5 subagents vs 6, and how AWHONN fits
 
-5 subagents vs 6 (adding AWHONN Respectful Care Framework as agent 6).
+**Decision:** Ship 5 subagents. AWHONN SBARs are referenced, not embedded.
 
-**My recommendation:** Ship 5 subagents. Fold AWHONN respectful care principles into the Output Generator as framing copy alongside the clinical checklist. Keep the 11 AWHONN SBAR documents in the repo under `data/awhonn-sbars/` so the framing copy is sourced from the documents and traceable, not invented.
+**Background:** Earlier we discussed Option A — fold AWHONN respectful care SBAR text into the Output Generator as framing copy. That plan does not survive contact with AWHONN's licensing terms.
 
-**Reasoning:** A 6th subagent carries real architectural cost (new contract, new Risk Synthesist screening rule, new failure modes, new tests). The AWHONN value does not require that cost. It requires two or three sentences of patient-tailored communication guidance in the output, sourced from the matching SBAR for the patient's identity. For the demo patient (Black woman, Medicaid), that means pulling framing language from the AWHONN Black women SBAR.
+**AWHONN licensing finding:** AWHONN SBAR PDFs carry "© Copyright 2023 by the Association of Women's Health, Obstetric and Neonatal Nurses." Their Terms of Use prohibit reproduction, copying, or republication of materials in any commercial environment without written permission. Individually purchased downloads are explicitly for "personal, informational, and non-commercial use only." A facility license starts at $300 per facility for the full Respectful Maternity Care framework. ECHO is a commercial tool. We cannot embed AWHONN SBAR text directly, even with attribution.
 
-**Why this matters for the demo:** Without any AWHONN integration, the output is a clinically correct but generic-looking checklist. A judge or buyer will reasonably ask how it differs from a paper handout from ACOG. With the framing copy in place, the answer is clear: same evidence base every CNM uses, framing calibrated to the patient in front of you.
+**What we are doing instead:**
 
-**Sourcing rule (carry into PRD):** Every piece of framing copy must trace back to a specific AWHONN SBAR document, the same way every checklist item traces to a federal source. No paraphrasing without citation. This keeps ECHO defensible.
+1. **Cite AWHONN SBARs as a reference** in the output. Example output line: "Communication framing aligned to AWHONN Respectful Patient Care SBARs. See awhonn.org/awhonn-sbars for full guidance." This is a citation, not reproduction. It is allowed.
 
-**Path to v3:** If the framing-copy approach lands well in the demo, v3 is where we promote it to a full Respectful Care subagent with Risk Synthesist integration.
+2. **Write our own original framing copy** in the Output Generator, grounded in publicly available evidence about respectful maternity care for specific populations. Sources: peer-reviewed literature (Cureus paper already in hand), CDC guidance (Hear Her), and other public-domain materials. Every piece of framing copy traces to a public-domain source, not to an AWHONN document.
+
+3. **Pursue an AWHONN license for v3** if the demo lands and we want to embed SBAR content directly. Contact: `permissions@awhonn.org`.
+
+**What this changes for the build:**
+- No `data/awhonn-sbars/` folder in the repo. The PDFs stay out of version control to avoid any implication of redistribution.
+- Output Generator system prompt instructs the model to write original framing copy grounded in cited public-domain sources, not to reproduce or paraphrase AWHONN content.
+- Every framing line in the output carries a citation to a public-domain source. AWHONN appears only as a "see also" reference at the bottom of the framing block.
+
+**What this does not change:**
+- The clinical value of patient-tailored communication framing is preserved. The CNM still gets identity-aware guidance.
+- The pitch story stays intact: ECHO points the CNM to authoritative resources (including AWHONN) for full guidance, while delivering original, sourced framing in the moment of care.
+- Architecture and contracts do not change. This is a content-generation rule, not a schema change.
+
+**Path to v3:** If the demo lands and we pursue an AWHONN license, the framing-copy module becomes a thin wrapper over licensed SBAR text. The same Output Generator slot fills with licensed content. No architectural rework.
+
+---
+
+## Locked decisions (resolved questions)
+
+| # | Question | Decision |
+|---|---|---|
+| 1 | AWHONN POST-BIRTH licensing | Skipped for v2. Replaced by CDC Hear Her (public domain). |
+| 2 | NCHS clean CSV vs PDF | Public domain. Health E-Stat 113 PDF table is the source. CDC WONDER available for queryable downloads if needed. Manual transcription from PDF table is acceptable for v2. |
+| 3 | Hospital not in CMS dataset | Bundle agent returns `status: 'partial'`. Display reads "Hospital commitment status: Not found in CMS dataset." Pipeline continues. |
+| 4 | Risk Synthesist conflict resolution | Confidence set to FLAGGED. SynthesistFlag created with `flag_type: 'conflict'`. Both data points preserved. CNM sees both. ECHO never resolves a clinical contradiction silently. |
+| 5 | Demo Day login wall | Open access. No persistent PII. Revisit for production. |
+| 6 | NY and TX subagent data coverage | Confirmed. All five subagents have audited, current data for both states. |
+| 7 | Session persistence | Nothing persists. No database, no storage, no logging of patient parameters. |
+| 8 | ACOG 4th Trimester licensing | Excerpts under approximately 100 words with attribution allowed without permission. Subagent 2 enforces per-finding excerpt cap. |
+| 9 | Dashboard format | HTML for Demo Day. |
+| 10 | Care team email layer ownership | Parked. v3 feature, out of scope for Demo Day. Provisional owner: Paula. Revisit after Demo Day. |
