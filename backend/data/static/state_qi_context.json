@@ -1,0 +1,100 @@
+{
+  "NY": {
+    "state_name": "New York",
+    "facts": [
+      {
+        "label": "NYSPQC Opioid Use Disorder QI Project",
+        "detail": "Per the New York State factsheet (page 2), the NYSPQC Opioid Use Disorder in Pregnancy & Neonatal Abstinence Syndrome Project (2018-2023) increased universal screening tool implementation from 21% to 95.1% of participating facilities and increased referrals to OUD treatment by 18.8%.",
+        "relevance_tags": ["substance_use"],
+        "sources": [
+          {
+            "name": "NYSDOH Mental Health Pregnancy-Associated Deaths Factsheet",
+            "url": "https://www.health.ny.gov/MaternalHealthMatters"
+          }
+        ]
+      },
+      {
+        "label": "Mental Health is the Leading Cause of NY Pregnancy-Associated Deaths",
+        "detail": "Per the New York State factsheet (page 1), 1 out of 3 pregnancy-associated deaths in New York (2018-2021) were due to mental health conditions, making mental health the leading cause. Almost 9 out of 10 pregnancy-associated deaths from mental health conditions were attributed to substance use disorder.",
+        "relevance_tags": ["mental_health", "general"],
+        "sources": [
+          {
+            "name": "NYSDOH Mental Health Pregnancy-Associated Deaths Factsheet",
+            "url": "https://www.health.ny.gov/MaternalHealthMatters"
+          }
+        ]
+      },
+      {
+        "label": "Project TEACH Maternal Mental Health Expansion",
+        "detail": "Per the New York State factsheet (page 2), New York expanded Project TEACH's Maternal Mental Health initiative in 2024 and created an interdisciplinary Maternal Mental Health Workgroup to develop recommendations. The state also provided $175,000 in 2023-2024 and $100,000 in 2024-2025 to support a Maternal Depression Peer Support program.",
+        "relevance_tags": ["mental_health"],
+        "sources": [
+          {
+            "name": "NYSDOH Mental Health Pregnancy-Associated Deaths Factsheet",
+            "url": "https://www.health.ny.gov/MaternalHealthMatters"
+          }
+        ]
+      },
+      {
+        "label": "NY Pregnancy-Related Deaths Are Largely Preventable",
+        "detail": "Per the New York State factsheet (page 1), 9 out of 10 pregnancy-related deaths from mental health conditions in New York (2018-2021) were potentially preventable. 9 out of 10 of these deaths occurred from 6 weeks to 1 year postpartum, underscoring the importance of postpartum follow-up beyond the standard 6-week visit.",
+        "relevance_tags": ["general"],
+        "sources": [
+          {
+            "name": "NYSDOH Mental Health Pregnancy-Associated Deaths Factsheet",
+            "url": "https://www.health.ny.gov/MaternalHealthMatters"
+          }
+        ]
+      }
+    ]
+  },
+  "TX": {
+    "state_name": "Texas",
+    "facts": [
+      {
+        "label": "TCHMB PPED Initiative Hospital Coverage",
+        "detail": "Per the TCHMB PPED Preliminary Summary (pages 3-4), the Recognition and Response to Postpartum Preeclampsia in the Emergency Department (PPED) initiative enrolled 37 hospitals representing 15 of Texas's 22 Regional Advisory Council (RAC) Perinatal Care Regions, running from August 2022 through May 2024.",
+        "relevance_tags": ["hypertension", "preeclampsia"],
+        "sources": [
+          {
+            "name": "TCHMB Recognition and Response to Postpartum Preeclampsia in the ED (PPED) Initiative Preliminary Summary",
+            "url": "https://www.tchmb.org/pped"
+          }
+        ]
+      },
+      {
+        "label": "Preeclampsia/Eclampsia is a Leading Cause of TX Pregnancy-Related Deaths",
+        "detail": "Per the TCHMB PPED Preliminary Summary (page 2), the 2020 Texas Maternal Mortality and Morbidity Review Committee (MMMRC) report identified preeclampsia or eclampsia as the leading cause of 11% of reviewed pregnancy-related deaths, with half of those deaths occurring within 42 days of delivery.",
+        "relevance_tags": ["hypertension", "preeclampsia", "general"],
+        "sources": [
+          {
+            "name": "TCHMB Recognition and Response to Postpartum Preeclampsia in the ED (PPED) Initiative Preliminary Summary",
+            "url": "https://www.tchmb.org/pped"
+          }
+        ]
+      },
+      {
+        "label": "TX Postpartum Visit Disparities by Race and Ethnicity",
+        "detail": "Per the TCHMB PPED Preliminary Summary (page 2), 2019 Texas PRAMS data show that 14.8% of Black women and 15.1% of Hispanic women had no postpartum checkup, compared to only 5.7% of White women. Low postpartum visit attendance limits prevention opportunities and exacerbates disparities.",
+        "relevance_tags": ["general"],
+        "sources": [
+          {
+            "name": "TCHMB Recognition and Response to Postpartum Preeclampsia in the ED (PPED) Initiative Preliminary Summary",
+            "url": "https://www.tchmb.org/pped"
+          }
+        ]
+      },
+      {
+        "label": "TX ED Staff Education on Postpartum Hypertension Protocols",
+        "detail": "Per the TCHMB PPED Preliminary Summary (page 14), education of ED physicians and advanced practice providers on postpartum hypertension protocols increased from 34% to 60% over the project period; nurse education increased from 48% to 74%. The goal of fully educating all ED staff was not yet met.",
+        "relevance_tags": ["hypertension", "preeclampsia"],
+        "sources": [
+          {
+            "name": "TCHMB Recognition and Response to Postpartum Preeclampsia in the ED (PPED) Initiative Preliminary Summary",
+            "url": "https://www.tchmb.org/pped"
+          }
+        ]
+      }
+    ]
+  }
+}
