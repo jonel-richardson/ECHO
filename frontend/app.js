@@ -133,30 +133,63 @@ function renderFramingBlock(framing) {
         ${seeAlso ? `<p class="text-xs text-gray-500 mt-1">See also: ${seeAlso}</p>` : ""}`;
 }
 
-function renderItems(items) {
-    const el = document.getElementById("checklist-items");
-    if (!el || !items) return;
-    const confidenceClasses = {
-        H: "bg-green-100 text-green-800 border-green-300",
-        M: "bg-yellow-100 text-yellow-800 border-yellow-300",
-        L: "bg-orange-100 text-orange-800 border-orange-300",
-        FLAGGED: "bg-red-100 text-red-800 border-red-300",
-    };
-    el.innerHTML = items.map((item) => `
-        <div class="border border-gray-200 rounded-lg p-4">
+function isSDOH(item) {
+    const src = (item.source || "").toLowerCase();
+    return src.includes("cms") || src.includes("hrsn") || src.includes("ahc") || src.includes("sdoh");
+}
+
+function renderItem(item) {
+    return `
+        <div class="checklist-item${item.confidence === "FLAGGED" ? " flagged" : ""}">
             <div class="flex items-start gap-3">
-                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-gray-700 text-xs font-bold flex-shrink-0">${item.priority_rank}</span>
+                <span class="priority-badge">${item.priority_rank}</span>
                 <div class="flex-1 min-w-0">
                     <div class="flex flex-wrap items-center gap-2 mb-1">
-                        <h3 class="font-semibold text-gray-900">${item.label}</h3>
-                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${confidenceClasses[item.confidence] || ''}">${item.confidence}</span>
+                        <h3 class="font-semibold text-sm" style="color: var(--text-primary);">${item.label}</h3>
+                        <span class="confidence-${item.confidence}">${item.confidence}</span>
                     </div>
-                    <p class="text-sm text-gray-700 mb-1">${item.detail}</p>
-                    <p class="text-sm font-medium text-blue-700 mb-1">${item.action}</p>
-                    <p class="text-xs text-gray-400">Source: ${item.source}</p>
+                    <p class="text-sm mb-1" style="color: var(--text-secondary);">${item.detail}</p>
+                    <p class="text-sm font-medium mb-1" style="color: var(--accent-text);">${item.action}</p>
+                    <p class="text-xs" style="color: var(--text-muted);">Source: ${item.source}</p>
                 </div>
             </div>
-        </div>`).join("");
+        </div>`;
+}
+
+function renderItems(items) {
+    const warningEl    = document.getElementById("warning-signs");
+    const sdohEl       = document.getElementById("sdoh-flags");
+    const warningEmpty = document.getElementById("warning-signs-empty");
+    const sdohEmpty    = document.getElementById("sdoh-flags-empty");
+
+    if (!warningEl && !sdohEl) return;
+
+    if (!items || !items.length) {
+        if (warningEmpty) warningEmpty.classList.remove("hidden");
+        if (sdohEmpty)    sdohEmpty.classList.remove("hidden");
+        return;
+    }
+
+    const warningItems = items.filter((item) => !isSDOH(item));
+    const sdohItems    = items.filter(isSDOH);
+
+    if (warningEl) {
+        if (warningItems.length) {
+            warningEl.innerHTML = warningItems.map(renderItem).join("");
+            if (warningEmpty) warningEmpty.classList.add("hidden");
+        } else {
+            if (warningEmpty) warningEmpty.classList.remove("hidden");
+        }
+    }
+
+    if (sdohEl) {
+        if (sdohItems.length) {
+            sdohEl.innerHTML = sdohItems.map(renderItem).join("");
+            if (sdohEmpty) sdohEmpty.classList.add("hidden");
+        } else {
+            if (sdohEmpty) sdohEmpty.classList.remove("hidden");
+        }
+    }
 }
 
 function renderHospitalStatus(hs) {
