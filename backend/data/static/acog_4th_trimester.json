@@ -1,0 +1,76 @@
+{
+  "findings": [
+    {
+      "label": "Mood and Emotional Well-Being",
+      "detail": "The postpartum visit should include screening for mood and emotional well-being using a validated tool such as the Edinburgh Postnatal Depression Scale. Depression and anxiety are among the most common postpartum complications. Clinicians should discuss results and connect patients with mental health resources. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "H",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 57
+    },
+    {
+      "label": "Infant Care and Feeding",
+      "detail": "ACOG Committee Opinion 736 includes assessment of infant care and feeding as a component of the comprehensive postpartum visit. Clinicians should screen for breastfeeding difficulties and provide referral to lactation support as needed. Safe sleep practices should be reviewed at this visit. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "M",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 51
+    },
+    {
+      "label": "Sexuality, Contraception, and Birth Spacing",
+      "detail": "ACOG Committee Opinion 736 recommends discussing contraception and birth spacing at the postpartum visit. Clinicians should assess contraceptive goals and provide evidence-based counseling including long-acting reversible contraception. Birth spacing of at least 18 months is associated with improved maternal and infant outcomes. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "M",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 51
+    },
+    {
+      "label": "Sleep and Fatigue",
+      "detail": "Sleep deprivation and fatigue are nearly universal in the postpartum period and can worsen mood disorders. ACOG Committee Opinion 736 identifies sleep and fatigue assessment as a component of the comprehensive postpartum visit. Clinicians should screen for excessive fatigue and connect patients with support resources. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "M",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 49
+    },
+    {
+      "label": "Physical Recovery from Birth",
+      "detail": "ACOG Committee Opinion 736 includes physical recovery as a component of the postpartum visit. Assessment should include perineal or cesarean incision healing, pain management, and return to physical activity. Patients should be asked about pelvic floor symptoms including urinary or fecal incontinence, with referral to pelvic floor physical therapy offered when indicated. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "M",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 59
+    },
+    {
+      "label": "Chronic Disease Management",
+      "detail": "ACOG Committee Opinion 736 identifies management of chronic conditions as a key component of postpartum care. Patients with gestational hypertension, preeclampsia, or gestational diabetes should receive appropriate follow-up and monitoring. Medication adjustments made during pregnancy should be reviewed and updated for the postpartum period. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "H",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 51
+    },
+    {
+      "label": "Health Maintenance",
+      "detail": "The postpartum visit is an opportunity to address health maintenance including vaccinations, cervical cancer screening, and chronic disease prevention. ACOG Committee Opinion 736 recommends using this visit to update routine preventive care that may have been deferred during pregnancy. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "M",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 44
+    },
+    {
+      "label": "Substance Use Screening",
+      "detail": "ACOG Committee Opinion 736 includes substance use screening as a component of comprehensive postpartum care. Clinicians should use a validated screening tool to assess alcohol, tobacco, and other substance use. Patients who screen positive should be offered brief counseling and referral to appropriate treatment and support services. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "M",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 51
+    },
+    {
+      "label": "Intimate Partner Violence Screening",
+      "detail": "The postpartum period is a time of heightened risk for intimate partner violence. ACOG Committee Opinion 736 recommends screening using a validated tool. Clinicians should be prepared to provide safety planning and referral to local domestic violence resources for patients who disclose abuse. (ACOG Committee Opinion 736, 2018)",
+      "confidence": "H",
+      "source_name": "ACOG Committee Opinion 736",
+      "source_url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care",
+      "word_count": 48
+    }
+  ]
+}
