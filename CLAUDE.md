@@ -39,6 +39,9 @@ backend/
 │   ├── synthesist_output.py         — SynthesistOutput, SynthesistFlag
 │   ├── scored_output.py             — ScoredOutput
 │   └── checklist_output.py          — ChecklistOutput, ChecklistItem, HospitalStatus
+├── fixtures/
+│   ├── maya_scenario.json           — Phase 11 placeholder: 28y, Black, Medicaid, NY, 6wk pp, no complications
+│   └── janet_scenario.json          — Phase 11 placeholder: 41y, White, Private, TX, 4wk pp, hypertensive disorder
 └── data/
     ├── cms_birthing_friendly_geocoded.csv      — Per-hospital Birthing-Friendly designation (geocoded)
     ├── cms_hcahps_ny.csv                       — NY hospital experience scores
@@ -67,18 +70,24 @@ backend/
         └── framing_library.json             — ORIGINAL framing copy by patient identity, cites public-domain sources, never reproduces AWHONN
 
 frontend/
-├── index.html                       — N1. CNM input form (8 fields)
-└── checklist.html                   — N13. One-page checklist render
+├── index.html                       — N1. CNM input form (8 fields). Phase 10 placeholder.
+├── checklist.html                   — N13. One-page checklist render. Phase 10 placeholder.
+├── app.js                           — Phase 10 placeholder: form fetch and state handling
+└── styles.css                       — Phase 10 placeholder: tokens beyond Tailwind utilities (see Section 5)
 
 tests/
-├── fixtures/
-│   ├── maya.json                    — 28y, Black, Medicaid, NY, 6wk pp, no complications
-│   └── janet.json                   — 41y, White, Private, TX, 4wk pp, hypertensive disorder
-├── test_subagents.py
-├── test_synthesist.py
-├── test_scorer.py
-├── test_output_generator.py
-└── test_end_to_end.py
+├── test_bundle.py                   — N6 Bundle subagent tests
+├── test_end_to_end.py               — Phase 11 placeholder: full pipeline against fixtures
+├── test_fallback.py                 — N9 Fallback handler tests
+├── test_mortality.py                — N3 Mortality subagent tests
+├── test_orchestrator.py             — Phase 8 placeholder: orchestrator tests
+├── test_output_generator.py         — Phase 7 placeholder: output generator tests
+├── test_risk_synthesist.py          — N8 Risk Synthesist tests
+├── test_schemas.py                  — Phase 1 schema validation tests
+├── test_scorer.py                   — N10 Scorer tests
+├── test_state_context.py            — N7 State Context subagent tests
+├── test_static_data.py              — Static JSON data validation tests
+└── test_subagents.py                — N4 Guideline + N5 SDOH subagent tests
 
 ECHO_SCHEMA.md                       — Schema source of truth (Luba)
 ECHO_BUILD_PLAN.md                   — Phased build steps (all)
