@@ -88,7 +88,7 @@ function loadChecklist() {
     const data = JSON.parse(raw);
     const patient = patientRaw ? JSON.parse(patientRaw) : {};
 
-    renderPatientHeader(patient, data);
+    renderPatientHeader(patient);
     renderFramingBlock(data.framing_block);
     renderItems(data.items);
     renderHospitalStatus(data.hospital_status);
@@ -97,12 +97,9 @@ function loadChecklist() {
     renderDisclaimer(data.clinical_disclaimer);
 }
 
-function renderPatientHeader(patient, data) {
+function renderPatientHeader(patient) {
     const el = document.getElementById("patient-header");
     if (!el) return;
-    const urgencyColors = { HIGH: "red", MED: "yellow", LOW: "green" };
-    const tier = data.urgency_tier || "";
-    const color = urgencyColors[tier] || "gray";
     el.innerHTML = `
         <div class="flex flex-wrap gap-4 items-start">
             <div class="flex-1 min-w-0">
@@ -118,9 +115,6 @@ function renderPatientHeader(patient, data) {
                         : ""}
                 </p>
             </div>
-            ${tier ? `<span class="px-3 py-1 rounded-full text-sm font-semibold bg-${color}-100 text-${color}-800 border border-${color}-300">
-                Urgency: ${tier}
-            </span>` : ""}
         </div>`;
 }
 
@@ -142,14 +136,20 @@ function renderFramingBlock(framing) {
 function renderItems(items) {
     const el = document.getElementById("checklist-items");
     if (!el || !items) return;
+    const confidenceClasses = {
+        H: "bg-green-100 text-green-800 border-green-300",
+        M: "bg-yellow-100 text-yellow-800 border-yellow-300",
+        L: "bg-orange-100 text-orange-800 border-orange-300",
+        FLAGGED: "bg-red-100 text-red-800 border-red-300",
+    };
     el.innerHTML = items.map((item) => `
         <div class="border border-gray-200 rounded-lg p-4">
             <div class="flex items-start gap-3">
-                <span class="priority-badge inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-gray-700 text-xs font-bold flex-shrink-0">${item.priority_rank}</span>
+                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 text-gray-700 text-xs font-bold flex-shrink-0">${item.priority_rank}</span>
                 <div class="flex-1 min-w-0">
                     <div class="flex flex-wrap items-center gap-2 mb-1">
                         <h3 class="font-semibold text-gray-900">${item.label}</h3>
-                        <span class="text-xs px-2 py-0.5 rounded confidence-${item.confidence}">${item.confidence}</span>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${confidenceClasses[item.confidence] || ''}">${item.confidence}</span>
                     </div>
                     <p class="text-sm text-gray-700 mb-1">${item.detail}</p>
                     <p class="text-sm font-medium text-blue-700 mb-1">${item.action}</p>
