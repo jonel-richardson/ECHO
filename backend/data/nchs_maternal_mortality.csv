@@ -1,0 +1,141 @@
+year,race_ethnicity,age_group,live_births,deaths,mortality_rate
+2018,all_races,all_ages,3791712,658,17.4
+2018,all_races,under_25,907782,96,10.6
+2018,all_races,25_to_39,2756974,458,16.6
+2018,all_races,40_and_older,126956,104,81.9
+2018,Asian,all_ages,240798,32,13.3
+2018,Asian,under_25,16338,,
+2018,Asian,25_to_39,211331,25,11.8
+2018,Asian,40_and_older,13129,,
+2018,Black or African American,all_ages,552029,206,37.3
+2018,Black or African American,under_25,176243,27,15.3
+2018,Black or African American,25_to_39,358276,137,38.2
+2018,Black or African American,40_and_older,17510,42,239.9
+2018,White,all_ages,1956413,291,14.9
+2018,White,under_25,391829,41,10.5
+2018,White,25_to_39,1504888,207,13.8
+2018,White,40_and_older,59696,43,72.0
+2018,Hispanic or Latino,all_ages,886210,105,11.8
+2018,Hispanic or Latino,under_25,275553,21,7.6
+2018,Hispanic or Latino,25_to_39,579553,72,12.4
+2018,Hispanic or Latino,40_and_older,31104,12,38.6
+2019,all_races,all_ages,3747540,754,20.1
+2019,all_races,under_25,877803,111,12.6
+2019,all_races,25_to_39,2739976,544,19.9
+2019,all_races,40_and_older,129761,98,75.5
+2019,Asian,all_ages,238769,33,13.8
+2019,Asian,under_25,15071,,
+2019,Asian,25_to_39,210177,28,13.3
+2019,Asian,40_and_older,13521,,
+2019,Black or African American,all_ages,548075,241,44.0
+2019,Black or African American,under_25,169853,32,18.8
+2019,Black or African American,25_to_39,360206,179,49.7
+2019,Black or African American,40_and_older,18016,30,166.5
+2019,White,all_ages,1915912,343,17.9
+2019,White,under_25,374129,49,13.1
+2019,White,25_to_39,1480595,248,16.8
+2019,White,40_and_older,61188,46,75.2
+2019,Hispanic or Latino,all_ages,886467,112,12.6
+2019,Hispanic or Latino,under_25,270948,23,8.5
+2019,Hispanic or Latino,25_to_39,584109,71,12.2
+2019,Hispanic or Latino,40_and_older,31410,18,57.3
+2020,all_races,all_ages,3613647,861,23.8
+2020,all_races,under_25,825403,114,13.8
+2020,all_races,25_to_39,2658445,607,22.8
+2020,all_races,40_and_older,129799,140,107.9
+2020,Asian,all_ages,219068,27,12.3
+2020,Asian,under_25,12993,,
+2020,Asian,25_to_39,193139,20,10.4
+2020,Asian,40_and_older,12936,,
+2020,Black or African American,all_ages,529811,293,55.3
+2020,Black or African American,under_25,159541,46,28.8
+2020,Black or African American,25_to_39,351648,198,56.3
+2020,Black or African American,40_and_older,18622,49,263.1
+2020,White,all_ages,1843432,352,19.1
+2020,White,under_25,348666,40,11.5
+2020,White,25_to_39,1433839,253,17.6
+2020,White,40_and_older,60927,59,96.8
+2020,Hispanic or Latino,all_ages,866713,158,18.2
+2020,Hispanic or Latino,under_25,258635,20,7.7
+2020,Hispanic or Latino,25_to_39,576690,111,19.2
+2020,Hispanic or Latino,40_and_older,31388,27,86.0
+2021,all_races,all_ages,3664292,1205,32.9
+2021,all_races,under_25,797334,163,20.4
+2021,all_races,25_to_39,2731223,854,31.3
+2021,all_races,40_and_older,135735,188,138.5
+2021,Asian,all_ages,213813,36,16.8
+2021,Asian,under_25,11149,,
+2021,Asian,25_to_39,189405,24,12.7
+2021,Asian,40_and_older,13259,,
+2021,Black or African American,all_ages,517889,362,69.9
+2021,Black or African American,under_25,149435,62,41.5
+2021,Black or African American,25_to_39,349170,242,69.3
+2021,Black or African American,40_and_older,19284,58,300.8
+2021,White,all_ages,1887656,503,26.6
+2021,White,under_25,336792,57,16.9
+2021,White,25_to_39,1486249,364,24.5
+2021,White,40_and_older,64615,82,126.9
+2021,Hispanic or Latino,all_ages,885916,248,28.0
+2021,Hispanic or Latino,under_25,255806,36,14.1
+2021,Hispanic or Latino,25_to_39,597703,184,30.8
+2021,Hispanic or Latino,40_and_older,32407,28,86.4
+2022,all_races,all_ages,3667758,817,22.3
+2022,all_races,under_25,784299,113,14.4
+2022,all_races,25_to_39,2738802,578,21.1
+2022,all_races,40_and_older,144657,126,87.1
+2022,Asian,all_ages,218994,29,13.2
+2022,Asian,under_25,11002,,
+2022,Asian,25_to_39,193025,21,10.9
+2022,Asian,40_and_older,14967,,
+2022,Black or African American,all_ages,511439,253,49.5
+2022,Black or African American,under_25,140498,44,31.3
+2022,Black or African American,25_to_39,349740,172,49.2
+2022,Black or African American,40_and_older,21201,37,174.5
+2022,White,all_ages,1840739,350,19.0
+2022,White,under_25,324604,35,10.8
+2022,White,25_to_39,1449365,259,17.9
+2022,White,40_and_older,66770,56,83.9
+2022,Hispanic or Latino,all_ages,937421,158,16.9
+2022,Hispanic or Latino,under_25,264310,25,9.5
+2022,Hispanic or Latino,25_to_39,637735,108,16.9
+2022,Hispanic or Latino,40_and_older,35376,25,70.7
+2023,all_races,all_ages,3596017,669,18.6
+2023,all_races,under_25,759713,95,12.5
+2023,all_races,25_to_39,2689250,486,18.1
+2023,all_races,40_and_older,147054,88,59.8
+2023,Asian,all_ages,215738,23,10.7
+2023,Asian,under_25,10352,,
+2023,Asian,25_to_39,190128,17,8.9
+2023,Asian,40_and_older,15258,,
+2023,Black or African American,all_ages,491494,247,50.3
+2023,Black or African American,under_25,131977,37,28.0
+2023,Black or African American,25_to_39,337697,181,53.6
+2023,Black or African American,40_and_older,21820,29,132.9
+2023,White,all_ages,1787051,259,14.5
+2023,White,under_25,309033,26,8.4
+2023,White,25_to_39,1410849,195,13.8
+2023,White,40_and_older,67169,38,56.6
+2023,Hispanic or Latino,all_ages,945200,117,12.4
+2023,Hispanic or Latino,under_25,266416,27,10.1
+2023,Hispanic or Latino,25_to_39,642429,77,12.0
+2023,Hispanic or Latino,40_and_older,36355,13,35.8
+2024,all_races,all_ages,3628934,649,17.9
+2024,all_races,under_25,750800,103,13.7
+2024,all_races,25_to_39,2725743,451,16.5
+2024,all_races,40_and_older,152391,95,62.3
+2024,Asian,all_ages,226860,41,18.1
+2024,Asian,under_25,10025,,
+2024,Asian,25_to_39,200513,34,17.0
+2024,Asian,40_and_older,16322,,
+2024,Black or African American,all_ages,473377,212,44.8
+2024,Black or African American,under_25,123063,35,28.4
+2024,Black or African American,25_to_39,327982,144,43.9
+2024,Black or African American,40_and_older,22332,33,147.8
+2024,White,all_ages,1783156,254,14.2
+2024,White,under_25,301335,30,10.0
+2024,White,25_to_39,1412086,183,13.0
+2024,White,40_and_older,69735,41,58.8
+2024,Hispanic or Latino,all_ages,984092,119,12.1
+2024,Hispanic or Latino,under_25,274850,31,11.3
+2024,Hispanic or Latino,25_to_39,672341,75,11.2
+2024,Hispanic or Latino,40_and_older,36901,13,35.2
