@@ -40,18 +40,31 @@ backend/
 │   ├── scored_output.py             — ScoredOutput
 │   └── checklist_output.py          — ChecklistOutput, ChecklistItem, HospitalStatus
 └── data/
-    ├── cms_birthing_friendly.csv    — Per-hospital Birthing-Friendly designation
-    ├── cms_hcahps_ny.csv            — NY hospital experience scores
-    ├── cms_core_set_ny_2023.xlsx    — NY Medicaid quality measures (sheet 52. PPC-AD is headline)
-    ├── cms_core_set_tx_2023.xlsx    — TX Medicaid quality measures (sheet 52. PPC-AD is headline)
-    ├── kff_postpartum_coverage.csv  — Medicaid 12-month extension status by state
-    ├── nnpqc_funding.csv            — National Network of Perinatal Quality Collaboratives funding
-    ├── nchs_maternal_mortality.csv  — Transcribed from hestat113.pdf table
+    ├── cms_birthing_friendly_geocoded.csv      — Per-hospital Birthing-Friendly designation (geocoded)
+    ├── cms_hcahps_ny.csv                       — NY hospital experience scores
+    ├── cms_core_set_ny_2023.xlsx               — NY Medicaid quality measures (sheet 52. PPC-AD is headline)
+    ├── cms_core_set_tx_2023.xlsx               — TX Medicaid quality measures (sheet 52. PPC-AD is headline)
+    ├── cms_core_set_postpartum_cross_state.csv — Cross-state PPC-AD baseline (backup/sanity check)
+    ├── cms_quality_measures_2021.csv           — Baseline state quality measure reporting
+    ├── kff_postpartum_coverage.csv             — Medicaid 12-month extension status by state
+    ├── nnpqc_funding.csv                       — National Network of Perinatal Quality Collaboratives funding
+    ├── nchs_maternal_mortality.csv             — Transcribed from nchs_maternal_mortality_2024.pdf table (Phase 2)
+    ├── us_maternal_mortality_2019_2023.csv     — Year-over-year national mortality figures (Mortality subagent)
+    ├── sources/                                — Source PDFs (raw inputs; not loaded at runtime)
+    │   ├── acog_committee_opinion_736.pdf
+    │   ├── aim_postpartum_discharge_bundle_v2.pdf
+    │   ├── cdc_hear_her_warning_signs.pdf
+    │   ├── cms_ahc_hrsn_screening_tool.pdf
+    │   ├── cms_iqr_fy28_measures_directory.pdf
+    │   ├── cureus_racial_disparity_2025.pdf
+    │   ├── nchs_maternal_mortality_2024.pdf
+    │   ├── nysdoh_mental_health_pregnancy_deaths_2018_2021.pdf
+    │   └── tchmb_pped_report_2024.pdf
     └── static/
-        ├── cdc_hear_her_signs.json  — CDC Hear Her urgent warning signs (public domain)
-        ├── acog_4th_trimester.json  — Short excerpts only, < 100 words each, with attribution
-        ├── cms_hrsn_domains.json    — 10 core + 8 supplemental SDOH domains (public domain)
-        └── framing_library.json     — ORIGINAL framing copy by patient identity, cites public-domain sources, never reproduces AWHONN
+        ├── cdc_hear_her_warning_signs.json — CDC Hear Her urgent warning signs (public domain)
+        ├── acog_4th_trimester.json         — Short excerpts only, < 100 words each, with attribution
+        ├── cms_hrsn_domains.json            — 10 core + 8 supplemental SDOH domains (public domain)
+        └── framing_library.json             — ORIGINAL framing copy by patient identity, cites public-domain sources, never reproduces AWHONN
 
 frontend/
 ├── index.html                       — N1. CNM input form (8 fields)
@@ -70,10 +83,21 @@ tests/
 ECHO_SCHEMA.md                       — Schema source of truth (Luba)
 ECHO_BUILD_PLAN.md                   — Phased build steps (all)
 ECHO_ARCHITECTURE.md                 — Node map and design decisions (all)
-ECHO_v2_data_summary.md              — Data manifest (Jonel)
+data_summary.md                      — Data manifest (Jonel)
 ```
 
 > Update this map when a new file or directory is added.
+
+### Naming Convention
+
+All files under `backend/data/` (including `sources/` and `static/`) follow this pattern so future files stay consistent:
+
+**Pattern:** `{source}_{topic}_{optional_qualifier}_{optional_year}.{ext}`
+
+- **Source prefix first.** Allowed sources: `cms`, `nchs`, `cdc`, `acog`, `kff`, `nnpqc`, `tchmb`, `nysdoh`, `cureus`, `us`, `aim`.
+- **Lowercase, underscores between words.** No hyphens, no camelCase.
+- **State qualifiers come before year.** Example: `cms_core_set_ny_2023` — not `cms_core_set_2023_ny`.
+- **Year only on source snapshots that get versioned annually.** Runtime files in `backend/data/static/` never carry a year.
 
 ## 4. Build & Dev Commands
 

@@ -6,7 +6,7 @@
 
 ## Changes from v2.1
 
-This version applies the data and licensing decisions captured in `ECHO_v2_data_summary.md`. Three things changed:
+This version applies the data and licensing decisions captured in `data_summary.md`. Three things changed:
 
 1. **N4 (Guideline) data source:** AWHONN POST-BIRTH replaced by CDC Hear Her urgent maternal warning signs. POST-BIRTH is licensed; Hear Her is public domain and covers the same clinical ground.
 2. **N12 renamed and rescoped:** Was "AWHONN SBAR Library." Now "Communication Framing Library" containing original framing copy grounded in public-domain sources. AWHONN is cited as a "see also" reference link, never reproduced.
@@ -115,7 +115,7 @@ Mortality  Guideline   SDOH    Bundle  State Context
 ### N4 — Guideline Subagent
 **File:** `backend/subagents/guideline.py`
 **Owner:** Luba
-**Data:** `acog_4th_trimester.json`, `cdc_hear_her_signs.json`
+**Data:** `acog_4th_trimester.json`, `cdc_hear_her_warning_signs.json`
 
 - Loads ACOG postpartum care timeline filtered by weeks_postpartum
 - Loads CDC Hear Her urgent warning signs — always returns the full set
@@ -140,7 +140,7 @@ Mortality  Guideline   SDOH    Bundle  State Context
 ### N6 — Bundle Subagent
 **File:** `backend/subagents/bundle.py`
 **Owner:** Jonel
-**Data:** `cms_birthing_friendly.csv`, `cms_hcahps_ny.csv`, `cms_core_set_ny_2023.xlsx`, `cms_core_set_tx_2023.xlsx`
+**Data:** `cms_birthing_friendly_geocoded.csv`, `cms_hcahps_ny.csv`, `cms_core_set_ny_2023.xlsx`, `cms_core_set_tx_2023.xlsx`
 
 - Matches hospital_name + state against CMS Birthing-Friendly dataset (per-hospital signal)
 - Pulls HCAHPS discharge information score for matched hospital (NY hospitals)
