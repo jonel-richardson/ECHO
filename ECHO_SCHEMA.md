@@ -58,7 +58,7 @@ Every subagent returns this object. The pipeline never raises — a failed subag
 |---|---|---|
 | `label` | str | Short finding label, e.g. "Hypertensive Disorder Risk" |
 | `detail` | str | 1-2 sentence clinical detail. ACOG-sourced details stay under approximately 100 words with inline attribution. |
-| `confidence` | str | "H" \| "M" \| "L" |
+| `confidence` | str | "H" \| "M" \| "L" \| "FLAGGED" after Risk Synthesist conflict screening |
 | `sources` | list[DataSource] | One or more data sources supporting this finding. Every finding must have at least one source. |
 
 ---
