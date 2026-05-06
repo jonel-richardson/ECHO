@@ -57,6 +57,7 @@ class HospitalStatus:
     birthing_friendly: str
     status: str
     hcahps_discharge_score: Optional[float] = None
+    state_postpartum_visit_rate: Optional[float] = None
 
     def __post_init__(self):
         errors = []

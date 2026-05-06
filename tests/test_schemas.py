@@ -76,6 +76,33 @@ class TestChecklistOutput:
             )
 
 
+class TestHospitalStatus:
+    def test_valid_with_state_rate(self):
+        hs = HospitalStatus(
+            hospital_name="NYC Health + Hospitals/Lincoln",
+            birthing_friendly="Meets criteria",
+            status="success",
+            state_postpartum_visit_rate=0.72
+        )
+        assert hs.state_postpartum_visit_rate == 0.72
+
+    def test_valid_without_state_rate(self):
+        hs = HospitalStatus(
+            hospital_name="NYC Health + Hospitals/Lincoln",
+            birthing_friendly="Meets criteria",
+            status="success"
+        )
+        assert hs.state_postpartum_visit_rate is None
+
+    def test_invalid_birthing_friendly_raises(self):
+        with pytest.raises(ValueError, match="birthing_friendly must be one of"):
+            HospitalStatus(
+                hospital_name="NYC Health + Hospitals/Lincoln",
+                birthing_friendly="Unknown",
+                status="success"
+            )
+
+
 class TestFindingItem:
     def test_empty_sources_raises(self):
         with pytest.raises(ValueError, match="sources must contain at least one DataSource"):
