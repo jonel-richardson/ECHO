@@ -92,6 +92,7 @@ class FramingBlock:
 class ChecklistOutput:
     items: List[ChecklistItem]
     hospital_status: HospitalStatus
+    framing_block: FramingBlock
     conflict_flags: List[SynthesistFlag] = field(default_factory=list)
     confidence_summary: str = ""
     clinical_disclaimer: str = CLINICAL_DISCLAIMER
