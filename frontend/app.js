@@ -1,6 +1,6 @@
 /* ECHO — form submit handler and checklist loader */
 
-const API_BASE = "";   // same origin; update if backend runs on a different port
+const API_BASE = "http://localhost:8000";   // update if backend runs on a different port
 
 /* ── index.html ── */
 const form = document.getElementById("echo-form");
