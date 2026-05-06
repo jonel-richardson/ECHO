@@ -85,6 +85,7 @@ Every subagent returns this object. The pipeline never raises — a failed subag
 | `conflicts` | list[SynthesistFlag] | Flagged contradictions between subagents |
 | `subagents_completed` | int | Count of subagents that returned success or partial |
 | `subagents_failed` | list[str] | Names of subagents that returned status = "failed" |
+| `subagents_partial` | list[str] | Names of subagents that returned status = "partial" |
 
 ---
 
@@ -114,7 +115,7 @@ Every subagent returns this object. The pipeline never raises — a failed subag
 | `patient_profile` | PatientProfile | Original patient input passed through |
 
 **urgency_tier logic:**
-- HIGH: complications_flagged is not empty AND Mortality returned H or M confidence
+- HIGH: complications_flagged is not empty AND a non-FLAGGED mortality signal exists. Step 5 may downgrade single-source mortality findings to L, so the scorer treats L mortality context as usable for urgency when it is not conflict-flagged.
 - MED: no complications AND (disparity_flag = True OR any subagent returned partial)
 - LOW: no complications, no elevated disparity signal, all subagents success
 

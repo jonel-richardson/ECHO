@@ -108,12 +108,15 @@ def synthesize_risk(
     grouped: Dict[str, List[Tuple[str, FindingItem]]] = {}
     seen = set()
     completed = 0
+    partial_agents: List[str] = []
 
     for result in subagent_results:
         if result.status not in {"success", "partial"}:
             continue
 
         completed += 1
+        if result.status == "partial":
+            partial_agents.append(result.agent_name)
         for finding in result.findings:
             key = _finding_key(finding)
             if key in seen:
@@ -153,6 +156,7 @@ def synthesize_risk(
         conflicts=flags,
         subagents_completed=completed,
         subagents_failed=failed_agents,
+        subagents_partial=partial_agents,
     )
 
 
