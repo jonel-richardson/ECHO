@@ -155,6 +155,15 @@ class TestFindingItem:
                 sources=[DataSource(name="CDC Hear Her")]
             )
 
+    def test_flagged_confidence_is_valid(self):
+        fi = FindingItem(
+            label="Blood Pressure Risk",
+            detail="Conflicting subagent evidence requires CNM review.",
+            confidence="FLAGGED",
+            sources=[DataSource(name="CDC Hear Her")]
+        )
+        assert fi.confidence == "FLAGGED"
+
     def test_empty_label_raises(self):
         with pytest.raises(ValueError, match="label is required"):
             FindingItem(

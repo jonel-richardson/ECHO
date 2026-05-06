@@ -3,7 +3,7 @@ from typing import List, Optional
 
 
 VALID_STATUSES = {"success", "partial", "failed"}
-VALID_CONFIDENCE = {"H", "M", "L"}
+VALID_CONFIDENCE = {"H", "M", "L", "FLAGGED"}
 
 
 @dataclass

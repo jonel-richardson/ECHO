@@ -19,3 +19,5 @@ CMS_HRSN_SOURCE_NAME = "CMS AHC HRSN Screening Tool"
 CMS_HRSN_SOURCE_URL = "https://www.cms.gov/priorities/innovation/innovation-models/ahc"
 
 ACOG_WORD_CAP = 100
+
+MIN_SOURCES_CONFIRMED = 2
