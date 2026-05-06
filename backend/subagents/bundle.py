@@ -128,7 +128,7 @@ def _bf_finding(state: str, hospital_name: str) -> Tuple[FindingItem, bool]:
             f"safety practices."
         )
         return FindingItem(
-            label="CMS Birthing-Friendly Designation \u2014 Designated",
+            label="CMS Birthing-Friendly Designation \u2014 Meets criteria",
             detail=detail,
             confidence="M",
             sources=[DataSource(
@@ -143,7 +143,7 @@ def _bf_finding(state: str, hospital_name: str) -> Tuple[FindingItem, bool]:
         f"time of the latest data refresh."
     )
     return FindingItem(
-        label="CMS Birthing-Friendly Designation \u2014 Not Designated",
+        label="CMS Birthing-Friendly Designation \u2014 Not found in CMS dataset",
         detail=detail,
         confidence="M",
         sources=[DataSource(
