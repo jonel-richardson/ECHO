@@ -117,10 +117,10 @@ Mortality  Guideline   SDOH    Bundle  State Context
 **Owner:** Luba
 **Data:** `acog_4th_trimester.json`, `cdc_hear_her_warning_signs.json`
 
-- Loads ACOG postpartum care timeline filtered by weeks_postpartum
 - Loads CDC Hear Her urgent warning signs — always returns the full set
-- Elevates matching signs if complications_flagged is not empty
-- Never filters out signs
+- Loads all curated ACOG fourth-trimester findings that pass the excerpt cap
+- Does not filter findings by weeks_postpartum in v2 because the curated ACOG JSON is component-based, not week-ranged
+- Does not elevate findings inside the subagent; warning-sign prioritization happens downstream in the checklist output layer
 
 **Excerpt rule:** ACOG Committee Opinion 736 excerpts must stay under approximately 100 words per finding with inline attribution. CDC Hear Her content has no excerpt limit. The subagent enforces the cap when constructing FindingItems.
 
@@ -132,7 +132,8 @@ Mortality  Guideline   SDOH    Bundle  State Context
 **Data:** `cms_hrsn_domains.json`
 
 - Returns all 10 core CMS AHC HRSN domains
-- Adds Medicaid note if payer = "Medicaid"
+- Returns all 8 supplemental CMS AHC HRSN domains
+- Does not add payer-specific Medicaid notes in N5; Medicaid context is handled by State Context, Bundle PPC-AD, and Communication Framing
 - confidence = M for all SDOH flags
 
 ---
@@ -267,7 +268,7 @@ Display order (always):
 | CDC Hear Her | N4 | Urgent maternal warning signs | Public domain |
 | ACOG Committee Opinion 736 | N4 | Postpartum care timeline by weeks (excerpts under ~100 words) | Licensed; excerpt rule applies |
 | AIM Postpartum Discharge Bundle v2.0 | N4 | Structured measures hospitals report on | Public domain |
-| CMS AHC HRSN | N5 | 10 SDOH screening domains | Public domain |
+| CMS AHC HRSN | N5 | 10 core + 8 supplemental SDOH screening domains | Public domain |
 | CMS Birthing-Friendly (geocoded) | N6 | Per-hospital designation status | Public domain |
 | CMS HCAHPS (NY) | N6 | Hospital consumer experience scores | Public domain |
 | CMS Core Set (NY, TX) | N6 | State-level Medicaid quality measures including PPC-AD | Public domain |
