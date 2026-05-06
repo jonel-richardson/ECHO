@@ -76,3 +76,11 @@ class TestAcogFindingItem:
     def test_minimum_entry_count(self):
         data = self._load()
         assert len(data["findings"]) >= 6
+
+    def test_actual_detail_word_count_under_100(self):
+        data = self._load()
+        for entry in data["findings"]:
+            actual = len(entry["detail"].split())
+            assert actual <= 100, (
+                f"{entry['label']} detail has {actual} words — exceeds 100 word ACOG excerpt cap"
+            )
