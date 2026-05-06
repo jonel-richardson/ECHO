@@ -62,7 +62,7 @@ def test_ny_patient_with_known_hospital_returns_4_findings():
 
     bf_finding = result.findings[0]
     assert "Birthing-Friendly" in bf_finding.label
-    assert "Designated" in bf_finding.label
+    assert "Meets criteria" in bf_finding.label
 
     hcahps_finding = result.findings[1]
     assert "HCAHPS" in hcahps_finding.label
@@ -77,7 +77,7 @@ def test_tx_patient_with_known_hospital_returns_3_findings():
 
     bf_finding = result.findings[0]
     assert "Birthing-Friendly" in bf_finding.label
-    assert "Designated" in bf_finding.label
+    assert "Meets criteria" in bf_finding.label
 
     state_finding = result.findings[1]
     assert "Texas" in state_finding.label
@@ -91,7 +91,7 @@ def test_unknown_hospital_returns_partial_status_with_state_finding_intact():
     assert len(result.findings) >= 2
 
     bf_finding = result.findings[0]
-    assert "Not Designated" in bf_finding.label
+    assert "Not found in CMS dataset" in bf_finding.label
 
     labels = {f.label for f in result.findings}
     assert any("Medicaid PPC-AD Rate" in label for label in labels)
