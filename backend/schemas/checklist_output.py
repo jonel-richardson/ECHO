@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import List, Optional
 
 from .synthesist_output import SynthesistFlag
+from .subagent_return import DataSource
 
 
 VALID_CONFIDENCE = {"H", "M", "L", "FLAGGED"}
@@ -56,6 +57,7 @@ class HospitalStatus:
     birthing_friendly: str
     status: str
     hcahps_discharge_score: Optional[float] = None
+    state_postpartum_visit_rate: Optional[float] = None
 
     def __post_init__(self):
         errors = []
@@ -77,9 +79,21 @@ class HospitalStatus:
 
 
 @dataclass
+class FramingBlock:
+    framing_copy: str
+    framing_sources: List[DataSource] = field(default_factory=list)
+    see_also: List[str] = field(default_factory=list)
+
+    def __post_init__(self):
+        if not self.framing_copy or not self.framing_copy.strip():
+            raise ValueError("FramingBlock.framing_copy is required")
+
+
+@dataclass
 class ChecklistOutput:
     items: List[ChecklistItem]
     hospital_status: HospitalStatus
+    framing_block: FramingBlock
     conflict_flags: List[SynthesistFlag] = field(default_factory=list)
     confidence_summary: str = ""
     clinical_disclaimer: str = CLINICAL_DISCLAIMER
