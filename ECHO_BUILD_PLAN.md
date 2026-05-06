@@ -9,7 +9,7 @@
 
 ## Changes from v2.1
 
-This version applies the data and licensing decisions captured in `ECHO_v2_data_summary.md`. Three things changed:
+This version applies the data and licensing decisions captured in `data_summary.md`. Three things changed:
 
 1. **AWHONN POST-BIRTH replaced by CDC Hear Her warning signs.** AWHONN POST-BIRTH is licensed and cannot be reproduced in a commercial tool. CDC Hear Her covers the same clinical ground and is public domain.
 2. **AWHONN SBAR Library replaced by an original Communication Framing Library.** AWHONN's Terms of Use prohibit reproduction of SBAR content in a commercial environment. The framing library uses original copy grounded in public-domain sources (CDC, peer-reviewed literature). AWHONN is cited as a "see also" reference link only.
@@ -42,14 +42,14 @@ Curate and validate all files in `/backend/data/` and `/backend/data/static/`.
 
 | File | Content | License |
 |---|---|---|
-| `cms_birthing_friendly.csv` | CMS Birthing-Friendly hospital designations | Public domain |
+| `cms_birthing_friendly_geocoded.csv` | CMS Birthing-Friendly hospital designations (geocoded) | Public domain |
 | `cms_hcahps_ny.csv` | NY HCAHPS discharge information scores | Public domain |
 | `cms_core_set_ny_2023.xlsx` | NY Medicaid quality measures (sheet 52. PPC-AD is headline) | Public domain |
 | `cms_core_set_tx_2023.xlsx` | TX Medicaid quality measures (sheet 52. PPC-AD is headline) | Public domain |
 | `kff_postpartum_coverage.csv` | Medicaid 12-month extension status by state | Public domain |
 | `nnpqc_funding.csv` | National Network of Perinatal Quality Collaboratives funding | Public domain |
 | `nchs_maternal_mortality.csv` | Maternal mortality rates by race and age, transcribed from Health E-Stat 113 PDF table | Public domain |
-| `cdc_hear_her_signs.json` | CDC Hear Her urgent maternal warning signs | Public domain |
+| `cdc_hear_her_warning_signs.json` | CDC Hear Her urgent maternal warning signs | Public domain |
 | `acog_4th_trimester.json` | Discrete excerpts from ACOG Committee Opinion 736, each under ~100 words, with inline attribution | Licensed (excerpt rule applies) |
 | `cms_hrsn_domains.json` | 10 core + 8 supplemental SDOH domains from CMS AHC HRSN Screening Tool | Public domain |
 | `framing_library.json` | Original communication framing copy keyed by patient identity dimensions, grounded in public-domain sources, with AWHONN cited as a "see also" reference link | Original work |
@@ -76,9 +76,9 @@ Each subagent must:
 | File | Node | Owner | Data Sources |
 |---|---|---|---|
 | `mortality.py` | N3 | Jonel | `nchs_maternal_mortality.csv`, NY MMRB, TX MMRB |
-| `guideline.py` | N4 | Luba | `acog_4th_trimester.json`, `cdc_hear_her_signs.json` |
+| `guideline.py` | N4 | Luba | `acog_4th_trimester.json`, `cdc_hear_her_warning_signs.json` |
 | `sdoh.py` | N5 | Luba | `cms_hrsn_domains.json` |
-| `bundle.py` | N6 | Jonel | `cms_birthing_friendly.csv`, `cms_hcahps_ny.csv`, `cms_core_set_ny_2023.xlsx`, `cms_core_set_tx_2023.xlsx` |
+| `bundle.py` | N6 | Jonel | `cms_birthing_friendly_geocoded.csv`, `cms_hcahps_ny.csv`, `cms_core_set_ny_2023.xlsx`, `cms_core_set_tx_2023.xlsx` |
 | `state_context.py` | N7 | Jonel | `kff_postpartum_coverage.csv`, `nnpqc_funding.csv` |
 
 **Subagent 4 (Guideline) excerpt rule:** When constructing findings from ACOG Committee Opinion 736, each excerpt stays under approximately 100 words and includes inline attribution to ACOG. CDC Hear Her content has no excerpt limit.
