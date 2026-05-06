@@ -127,3 +127,53 @@ class TestCmsHrsnDomains:
         data = self._load()
         codes = [e["domain_code"] for e in data["core_domains"] + data["supplemental_domains"]]
         assert len(codes) == len(set(codes)), "Duplicate domain_code found"
+
+
+class TestFramingLibrary:
+    def _load(self):
+        return json.loads((STATIC / "framing_library.json").read_text())
+
+    def test_file_exists(self):
+        assert (STATIC / "framing_library.json").exists()
+
+    def test_default_key_present(self):
+        data = self._load()
+        assert "default" in data
+
+    def test_maya_fixture_key_present(self):
+        data = self._load()
+        assert "Black or African American|Medicaid" in data
+
+    def test_janet_fixture_key_present(self):
+        data = self._load()
+        assert "White|Private" in data
+
+    def test_all_blocks_have_required_fields(self):
+        data = self._load()
+        required = {"framing_copy", "framing_sources", "see_also"}
+        for key, block in data.items():
+            assert required.issubset(block.keys()), f"Missing fields in block: {key}"
+
+    def test_no_awhonn_text_in_framing_copy(self):
+        data = self._load()
+        for key, block in data.items():
+            assert "awhonn" not in block["framing_copy"].lower(), (
+                f"AWHONN content found in framing_copy for key: {key} — AWHONN must only appear in see_also"
+            )
+
+    def test_awhonn_reference_in_see_also(self):
+        data = self._load()
+        for key, block in data.items():
+            assert any("awhonn" in link.lower() for link in block["see_also"]), (
+                f"Missing AWHONN see_also reference in block: {key}"
+            )
+
+    def test_all_framing_copies_nonempty(self):
+        data = self._load()
+        for key, block in data.items():
+            assert block["framing_copy"].strip(), f"Empty framing_copy for key: {key}"
+
+    def test_all_blocks_have_at_least_one_source(self):
+        data = self._load()
+        for key, block in data.items():
+            assert len(block["framing_sources"]) >= 1, f"No framing_sources for key: {key}"

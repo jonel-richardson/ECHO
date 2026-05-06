@@ -1,0 +1,59 @@
+{
+  "Black or African American|Medicaid": {
+    "framing_copy": "Black women are more than three times as likely as White women to die from pregnancy-related causes in the United States — a disparity that persists regardless of income or education. At this visit, affirm your patient's right to be heard: her symptoms and concerns are clinically valid. New York and Texas both provide 12-month postpartum Medicaid coverage — confirm enrollment and connect her with follow-up care. Use open-ended questions. Acknowledge the systemic barriers she may face. Per CDC Hear Her: her voice in this care encounter matters.",
+    "framing_sources": [
+      {"name": "CDC Hear Her", "url": "https://www.cdc.gov/hearher"},
+      {"name": "Crear Fuentes et al., Cureus 2025", "url": null},
+      {"name": "NCHS Health E-Stat 113", "url": "https://www.cdc.gov/nchs/products/databriefs/db456.htm"}
+    ],
+    "see_also": ["https://www.awhonn.org/awhonn-sbars"]
+  },
+  "Black or African American|Private": {
+    "framing_copy": "Research shows that Black women face higher rates of postpartum complications regardless of insurance coverage. Private insurance provides access to extended follow-up care — confirm your patient understands her benefits, including mental health coverage and specialist referrals. Affirm her right to ask questions and share symptoms without minimization. Per CDC Hear Her: every warning sign she reports deserves a thorough clinical response. Use open-ended questions and allow sufficient time for her to speak.",
+    "framing_sources": [
+      {"name": "CDC Hear Her", "url": "https://www.cdc.gov/hearher"},
+      {"name": "Crear Fuentes et al., Cureus 2025", "url": null}
+    ],
+    "see_also": ["https://www.awhonn.org/awhonn-sbars"]
+  },
+  "White|Medicaid": {
+    "framing_copy": "This postpartum visit is an opportunity to review the full spectrum of fourth-trimester care. Medicaid coverage extends to 12 months postpartum in New York and Texas — confirm your patient knows her coverage is active and how to access follow-up visits, mental health services, and specialty care. Screen for mood, physical recovery, and social needs. Use this visit to connect her with community resources for food, housing, or transportation support if needed. Per CDC Hear Her, ensure she knows the warning signs that require urgent care.",
+    "framing_sources": [
+      {"name": "CDC Hear Her", "url": "https://www.cdc.gov/hearher"},
+      {"name": "ACOG Committee Opinion 736", "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"}
+    ],
+    "see_also": ["https://www.awhonn.org/awhonn-sbars"]
+  },
+  "White|Private": {
+    "framing_copy": "With private insurance coverage, your patient has access to extended postpartum follow-up and mental health services. Use this visit to complete the comprehensive fourth-trimester assessment: mood screening, physical recovery, contraception, and outstanding health maintenance. Review CDC Hear Her warning signs and ensure she knows when to seek urgent care. Confirm follow-up appointments are scheduled, including any specialist referrals indicated by today's findings.",
+    "framing_sources": [
+      {"name": "CDC Hear Her", "url": "https://www.cdc.gov/hearher"},
+      {"name": "ACOG Committee Opinion 736", "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"}
+    ],
+    "see_also": ["https://www.awhonn.org/awhonn-sbars"]
+  },
+  "Hispanic or Latino|Medicaid": {
+    "framing_copy": "Language access and cultural concordance affect postpartum care quality and outcomes. Confirm your patient's preferred language for health communication and ensure interpreter services are available throughout this visit. Medicaid covers postpartum care for 12 months in New York and Texas. Screen for social needs including food security, transportation, and family support. Per CDC Hear Her: your patient's concerns and symptoms deserve to be heard clearly and taken seriously, in the language she is most comfortable using.",
+    "framing_sources": [
+      {"name": "CDC Hear Her", "url": "https://www.cdc.gov/hearher"},
+      {"name": "CMS AHC HRSN Screening Tool", "url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc"}
+    ],
+    "see_also": ["https://www.awhonn.org/awhonn-sbars"]
+  },
+  "Hispanic or Latino|Private": {
+    "framing_copy": "Confirm your patient's preferred language for health communication at this visit. Private insurance provides access to extended postpartum follow-up — review her benefits including mental health coverage and specialist referrals. Screen for warning signs using culturally aware communication. Per CDC Hear Her, symptoms that may be minimized due to language or cultural context deserve full clinical evaluation. Ask open-ended questions and allow adequate time for her to share her concerns.",
+    "framing_sources": [
+      {"name": "CDC Hear Her", "url": "https://www.cdc.gov/hearher"},
+      {"name": "ACOG Committee Opinion 736", "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"}
+    ],
+    "see_also": ["https://www.awhonn.org/awhonn-sbars"]
+  },
+  "default": {
+    "framing_copy": "Use this postpartum visit to screen for the full range of fourth-trimester health needs: mood and emotional well-being, physical recovery, social needs, and warning signs requiring urgent attention. Per CDC Hear Her, patients should feel empowered to share their symptoms and know that their concerns will be taken seriously. Confirm follow-up care plans and connect your patient with community resources as needed. Ensure she leaves this visit knowing when and how to seek urgent care.",
+    "framing_sources": [
+      {"name": "CDC Hear Her", "url": "https://www.cdc.gov/hearher"},
+      {"name": "ACOG Committee Opinion 736", "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"}
+    ],
+    "see_also": ["https://www.awhonn.org/awhonn-sbars"]
+  }
+}
