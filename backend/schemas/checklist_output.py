@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import List, Optional
 
 from .synthesist_output import SynthesistFlag
+from .subagent_return import DataSource
 
 
 VALID_CONFIDENCE = {"H", "M", "L", "FLAGGED"}
@@ -74,6 +75,17 @@ class HospitalStatus:
 
         if errors:
             raise ValueError(f"HospitalStatus validation failed: {'; '.join(errors)}")
+
+
+@dataclass
+class FramingBlock:
+    framing_copy: str
+    framing_sources: List[DataSource] = field(default_factory=list)
+    see_also: List[str] = field(default_factory=list)
+
+    def __post_init__(self):
+        if not self.framing_copy or not self.framing_copy.strip():
+            raise ValueError("FramingBlock.framing_copy is required")
 
 
 @dataclass
