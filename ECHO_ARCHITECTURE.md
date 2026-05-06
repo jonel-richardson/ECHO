@@ -1,6 +1,16 @@
 # ECHO_ARCHITECTURE.md — Node Map & Design Decisions
-**Version:** 2.1 | **Project:** ECHO — Early Care Handoff Observer
+**Version:** 2.2 | **Project:** ECHO — Early Care Handoff Observer
 **Team:** Luba Kaper · Paula · Jonel
+
+---
+
+## Changes from v2.1
+
+This version applies the data and licensing decisions captured in `ECHO_v2_data_summary.md`. Three things changed:
+
+1. **N4 (Guideline) data source:** AWHONN POST-BIRTH replaced by CDC Hear Her urgent maternal warning signs. POST-BIRTH is licensed; Hear Her is public domain and covers the same clinical ground.
+2. **N12 renamed and rescoped:** Was "AWHONN SBAR Library." Now "Communication Framing Library" containing original framing copy grounded in public-domain sources. AWHONN is cited as a "see also" reference link, never reproduced.
+3. **Subagent 4 (Guideline) excerpt rule:** ACOG Committee Opinion 736 excerpts must stay under approximately 100 words per finding with inline attribution.
 
 ---
 
@@ -52,7 +62,7 @@ Mortality  Guideline   SDOH    Bundle  State Context
                     |
                     v
             [N11] Output Generator (output_generator.py)
-            - Loads AWHONN SBAR framing (N12)
+            - Loads Communication Framing Library (N12)
             - Calls Anthropic API (claude-sonnet-4-20250514)
             - Returns ChecklistOutput
                     |
@@ -94,7 +104,7 @@ Mortality  Guideline   SDOH    Bundle  State Context
 ### N3 — Mortality Subagent
 **File:** `backend/subagents/mortality.py`
 **Owner:** Jonel
-**Data:** `nchs_nvss_mortality.csv`, NY MMRB, TX MMRB
+**Data:** `nchs_maternal_mortality.csv`, NY MMRB, TX MMRB
 
 - Filters by race_ethnicity and state
 - Returns top 3 leading causes of maternal mortality with MMR values
@@ -105,12 +115,14 @@ Mortality  Guideline   SDOH    Bundle  State Context
 ### N4 — Guideline Subagent
 **File:** `backend/subagents/guideline.py`
 **Owner:** Luba
-**Data:** `acog_4th_trimester.json`, `awhonn_post_birth.json`
+**Data:** `acog_4th_trimester.json`, `cdc_hear_her_signs.json`
 
-- Loads ACOG timeline filtered by weeks_postpartum
-- Loads full AWHONN POST-BIRTH 9-sign set — always returns all 9
+- Loads ACOG postpartum care timeline filtered by weeks_postpartum
+- Loads CDC Hear Her urgent warning signs — always returns the full set
 - Elevates matching signs if complications_flagged is not empty
 - Never filters out signs
+
+**Excerpt rule:** ACOG Committee Opinion 736 excerpts must stay under approximately 100 words per finding with inline attribution. CDC Hear Her content has no excerpt limit. The subagent enforces the cap when constructing FindingItems.
 
 ---
 
@@ -128,10 +140,11 @@ Mortality  Guideline   SDOH    Bundle  State Context
 ### N6 — Bundle Subagent
 **File:** `backend/subagents/bundle.py`
 **Owner:** Jonel
-**Data:** `cms_birthing_friendly.csv`, `cms_hcahps.csv`
+**Data:** `cms_birthing_friendly.csv`, `cms_hcahps_ny.csv`, `cms_core_set_ny_2023.xlsx`, `cms_core_set_tx_2023.xlsx`
 
-- Matches hospital_name + state against CMS Birthing-Friendly dataset
-- Pulls HCAHPS discharge information score for matched hospital
+- Matches hospital_name + state against CMS Birthing-Friendly dataset (per-hospital signal)
+- Pulls HCAHPS discharge information score for matched hospital (NY hospitals)
+- Pulls state-level Core Set PPC-AD postpartum care visit rate from the matching state file
 - If hospital not found: status = partial, pipeline continues (not a failure)
 
 ---
@@ -139,12 +152,12 @@ Mortality  Guideline   SDOH    Bundle  State Context
 ### N7 — State Context Subagent
 **File:** `backend/subagents/state_context.py`
 **Owner:** Jonel
-**Data:** `kff_medicaid_postpartum.csv`, static reference
+**Data:** `kff_postpartum_coverage.csv`, `nnpqc_funding.csv`, static reference
 
 - Returns Medicaid 12-month extension status for patient's state
-- Returns state MMR ranking vs. national average
-- NY: includes NNPQC perinatal QI context note
-- TX: includes TCHMB maternal health data note
+- Returns state QI infrastructure context from NNPQC funding data
+- NY: includes NYSPQC perinatal QI context note
+- TX: includes TCHMB maternal health context note
 
 ---
 
@@ -187,21 +200,27 @@ Mortality  Guideline   SDOH    Bundle  State Context
 **Owner:** Paula
 
 - Receives ScoredOutput
-- Loads AWHONN SBAR framing from `awhonn_sbar_library.json` by patient identity
+- Loads matching framing copy from `framing_library.json` by patient identity dimensions (N12)
 - Builds prompt and calls Anthropic API
 - Model: `claude-sonnet-4-20250514` | max_tokens: 2000 | no streaming
 - Validates every ChecklistItem has all required fields
 - Returns ChecklistOutput
 
+**Licensing rule:** The system prompt instructs the model to write original framing copy grounded in cited public-domain sources, not to reproduce or paraphrase AWHONN content. AWHONN appears only as a "see also" reference link at the bottom of the framing block.
+
 ---
 
-### N12 — AWHONN SBAR Library
-**File:** `backend/data/static/awhonn_sbar_library.json`
+### N12 — Communication Framing Library
+**File:** `backend/data/static/framing_library.json`
 **Owner:** Luba
 
-- 11 sourced SBAR framing documents keyed by patient identity dimensions
-- Used by N11 to pull pre-sourced communication framing
-- Do not generate SBAR framing from scratch — always pull from this library
+- Original framing copy keyed by patient identity dimensions (race/ethnicity, payer, complications, language)
+- Grounded in public-domain sources: CDC, peer-reviewed literature, federal guidance
+- Never reproduces or paraphrases AWHONN content
+- AWHONN appears as a "see also" reference link only (`awhonn.org/awhonn-sbars`)
+- Used by N11 to fold patient-tailored communication guidance into the checklist
+
+**Why this exists, not a 6th subagent:** A full 6th subagent would carry architectural cost (new contract, new Risk Synthesist screening rule, new failure modes, new tests). The framing value does not require that cost. It needs original copy in the output, sourced from public-domain materials and structured by patient identity. v3 is where this could be promoted to a full Respectful Care subagent if an AWHONN license is pursued.
 
 ---
 
@@ -211,12 +230,13 @@ Mortality  Guideline   SDOH    Bundle  State Context
 
 Display order (always):
 1. Patient context header (no name or MRN — age range, race/ethnicity, payer, state, weeks postpartum)
-2. Prioritized warning signs (AWHONN POST-BIRTH 9 signs, ordered by priority_rank)
+2. Prioritized warning signs (CDC Hear Her urgent signs, ordered by priority_rank)
 3. SDOH screening flags (CMS AHC HRSN domains)
-4. Hospital commitment status (Birthing-Friendly + HCAHPS)
+4. Hospital commitment status (Birthing-Friendly + HCAHPS + Core Set state-level)
 5. Conflict flags (FLAGGED findings — always show both data points)
-6. Data confidence summary
-7. Clinical disclaimer (hardcoded, always at bottom, never modified)
+6. Communication framing block (from `framing_library.json`, with AWHONN cited as "see also" reference link)
+7. Data confidence summary
+8. Clinical disclaimer (hardcoded, always at bottom, never modified)
 
 ---
 
@@ -230,23 +250,37 @@ Display order (always):
 | Fallback handler never raises | Partial results are better than a full pipeline crash |
 | Conflict detection by exact label matching | Avoids semantic similarity edge cases in Demo Day scope |
 | Single Anthropic API call at N11 | One structured prompt → one ChecklistOutput JSON |
-| AWHONN SBAR library (N12) | Sourced framing — never generate clinical communication from scratch |
+| Communication Framing Library (N12) is original work | AWHONN content cannot be reproduced commercially. Original copy grounded in public-domain sources is defensible and licensable for v3 if needed. |
+| CDC Hear Her replaces AWHONN POST-BIRTH | Hear Her is public domain and covers the same clinical ground |
+| ACOG excerpts capped at ~100 words per finding | ACOG permits short excerpts with attribution; longer reproductions require written permission |
 | disparity_flag for Black patients in NY/TX | These states have documented elevated MMR for Black patients |
 
 ---
 
 ## Data Sources
 
-| Source | Node | Data |
-|---|---|---|
-| NCHS NVSS | N3 | Maternal mortality rates by race and state |
-| NY MMRB | N3 | New York Maternal Mortality Review Board data |
-| TX MMRB | N3 | Texas Maternal Mortality Review Board data |
-| AWHONN POST-BIRTH | N4 | 9 canonical postpartum warning signs |
-| ACOG 4th Trimester | N4 | Postpartum care timeline by weeks |
-| CMS AHC HRSN | N5 | 10 SDOH screening domains |
-| CMS Birthing-Friendly | N6 | Hospital designation status |
-| CMS HCAHPS | N6 | Hospital consumer experience scores |
-| KFF | N7 | Medicaid postpartum coverage by state |
-| NNPQC | N7 | New York perinatal quality context |
-| TCHMB | N7 | Texas Child Health and Maternal Benefits data |
+| Source | Node | Data | License |
+|---|---|---|---|
+| NCHS Health E-Stat 113 | N3 | National maternal mortality rates by race and age | Public domain |
+| NY MMRB | N3 | New York Maternal Mortality Review Board data | Public domain |
+| TX MMRB / TCHMB | N3, N7 | Texas maternal mortality and QI context | Public domain |
+| CDC Hear Her | N4 | Urgent maternal warning signs | Public domain |
+| ACOG Committee Opinion 736 | N4 | Postpartum care timeline by weeks (excerpts under ~100 words) | Licensed; excerpt rule applies |
+| AIM Postpartum Discharge Bundle v2.0 | N4 | Structured measures hospitals report on | Public domain |
+| CMS AHC HRSN | N5 | 10 SDOH screening domains | Public domain |
+| CMS Birthing-Friendly (geocoded) | N6 | Per-hospital designation status | Public domain |
+| CMS HCAHPS (NY) | N6 | Hospital consumer experience scores | Public domain |
+| CMS Core Set (NY, TX) | N6 | State-level Medicaid quality measures including PPC-AD | Public domain |
+| KFF Postpartum Coverage Tracker | N7 | Medicaid 12-month extension status by state | Public domain |
+| NNPQC Funding | N7 | National Network of Perinatal QI Collaboratives funding | Public domain |
+| AWHONN | N12 | Cited as "see also" reference link only. Not reproduced or paraphrased. | Licensed; reference-only use |
+
+---
+
+## Out of Scope (v3 Considerations)
+
+- **Autonomous care team email send.** Drawn dashed in early architecture diagrams as N14. Not built in v2. Provisional owner if pursued: Paula.
+- **AWHONN license for embedded SBAR content.** If the demo lands and we want to embed AWHONN SBAR text directly in the framing block, contact `permissions@awhonn.org`. Facility license starts at $300 per facility for the full RMC framework.
+- **Per-hospital AIM bundle adoption data.** Login-gated, not scrapeable at scale.
+- **EHR integration.** Out of scope for v2. Pipeline is designed to be EHR-agnostic.
+- **HIPAA-compliant persistent storage.** Not built. v2 is session-only with no PHI logging.
