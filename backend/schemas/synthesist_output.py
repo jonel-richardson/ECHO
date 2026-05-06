@@ -36,6 +36,7 @@ class SynthesistOutput:
     conflicts: List[SynthesistFlag] = field(default_factory=list)
     subagents_completed: int = 0
     subagents_failed: List[str] = field(default_factory=list)
+    subagents_partial: List[str] = field(default_factory=list)
 
     def __post_init__(self):
         if self.subagents_completed < 0:

@@ -95,6 +95,19 @@ class TestRiskSynthesist:
         assert output.subagents_completed == 0
         assert output.subagents_failed == ["bundle"]
 
+    def test_partial_agents_are_preserved_for_scorer(self):
+        partial = SubAgentReturn(
+            agent_name="bundle",
+            status="partial",
+            findings=[],
+            error_message="Hospital not found in CMS dataset.",
+        )
+
+        output = synthesize_risk([partial])
+
+        assert output.subagents_completed == 1
+        assert output.subagents_partial == ["bundle"]
+
     def test_exact_duplicate_findings_are_deduplicated(self):
         finding = _finding(
             "Coverage Context",

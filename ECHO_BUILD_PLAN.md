@@ -132,6 +132,8 @@ Each subagent must:
 
 **Done when:** Maya scenario → disparity_flag = True, urgency = MED or HIGH. Janet (hypertensive) → urgency = HIGH.
 
+**Scorer note:** Because Step 5 downgrades single-source findings to LOW, Janet's HIGH urgency path is based on complications plus a non-FLAGGED mortality signal, not only H/M mortality confidence. See `ECHO_SCHEMA.md` for the scorer contract.
+
 ---
 
 ## Step 7 — Output Generator
