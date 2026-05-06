@@ -5,6 +5,11 @@ import logging
 from http import HTTPStatus
 from typing import Dict, Tuple
 
+# Load .env before importing any backend module so ANTHROPIC_API_KEY is in
+# os.environ by the time output_generator's code paths read it.
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
