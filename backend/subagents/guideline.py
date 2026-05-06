@@ -12,6 +12,7 @@ from typing import List
 from backend.constants import (
     ACOG_CO_736_SOURCE_NAME,
     ACOG_CO_736_SOURCE_URL,
+    ACOG_WORD_CAP,
     CDC_HEAR_HER_SOURCE_NAME,
     CDC_HEAR_HER_SOURCE_URL,
 )
@@ -20,7 +21,6 @@ from backend.schemas import DataSource, FindingItem, PatientProfile, SubAgentRet
 logger = logging.getLogger(__name__)
 
 AGENT_NAME = "guideline"
-ACOG_WORD_CAP = 100
 
 _STATIC = Path(__file__).resolve().parents[1] / "data" / "static"
 _CDC_DATA = json.loads((_STATIC / "cdc_hear_her_warning_signs.json").read_text())

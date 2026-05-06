@@ -10,3 +10,5 @@ ACOG_CO_736_SOURCE_NAME = "ACOG Committee Opinion 736"
 ACOG_CO_736_SOURCE_URL = "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care"
 CMS_HRSN_SOURCE_NAME = "CMS AHC HRSN Screening Tool"
 CMS_HRSN_SOURCE_URL = "https://www.cms.gov/priorities/innovation/innovation-models/ahc"
+
+ACOG_WORD_CAP = 100
