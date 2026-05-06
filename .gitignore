@@ -33,3 +33,6 @@ htmlcov/
 
 # Planning artifacts
 docs/
+
+# Claude Code local state
+.claude/
