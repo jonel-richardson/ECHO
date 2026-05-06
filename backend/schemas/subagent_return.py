@@ -35,6 +35,9 @@ class FindingItem:
         if self.confidence not in VALID_CONFIDENCE:
             errors.append(f"confidence must be one of: {', '.join(VALID_CONFIDENCE)}")
 
+        if not self.sources:
+            errors.append("sources must contain at least one DataSource")
+
         if errors:
             raise ValueError(f"FindingItem validation failed: {'; '.join(errors)}")
 
