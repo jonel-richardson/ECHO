@@ -2,7 +2,7 @@ import json
 import pathlib
 import pytest
 
-STATIC = pathlib.Path("backend/data/static")
+STATIC = pathlib.Path(__file__).parent.parent / "backend/data/static"
 
 
 class TestCdcHearHer:

@@ -23,7 +23,7 @@
     },
     {
       "label": "Seizures",
-      "detail": "Any seizure activity in the postpartum period is a medical emergency. Per CDC Hear Her, call 911 immediately — seizures may indicate eclampsia even after delivery.",
+      "detail": "Any seizure activity in the postpartum period requires immediate emergency response. Per CDC Hear Her, postpartum seizures may indicate eclampsia. Activate emergency services and transfer to emergency care immediately.",
       "confidence": "H",
       "source_name": "CDC Hear Her",
       "source_url": "https://www.cdc.gov/hearher"
@@ -58,7 +58,7 @@
     },
     {
       "label": "Thoughts of Self-Harm or Harming Baby",
-      "detail": "Any thoughts of harming yourself or your baby. Per CDC Hear Her, these thoughts require immediate clinical attention. Call your provider or 988 (Suicide and Crisis Lifeline) right away.",
+      "detail": "Any reported thoughts of self-harm or harm to the infant. Per CDC Hear Her, these require immediate clinical response. Screen urgently using a validated tool, provide safety planning, and connect to behavioral health resources and crisis support.",
       "confidence": "H",
       "source_name": "CDC Hear Her",
       "source_url": "https://www.cdc.gov/hearher"
