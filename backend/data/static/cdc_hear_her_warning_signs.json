@@ -1,0 +1,88 @@
+{
+  "warning_signs": [
+    {
+      "label": "Severe Headache",
+      "detail": "A severe headache that does not go away or worsens over time. Per CDC Hear Her, this may indicate a dangerous rise in blood pressure and requires immediate evaluation.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Changes in Vision",
+      "detail": "Blurred vision, flashing lights, or floaters in your field of vision. Per CDC Hear Her, these visual changes can signal a serious postpartum complication such as preeclampsia.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Chest Pain or Trouble Breathing",
+      "detail": "Chest pain, pressure, or difficulty breathing that is new or worsening. Per CDC Hear Her, these symptoms require emergency evaluation and may indicate pulmonary embolism or postpartum cardiomyopathy.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Seizures",
+      "detail": "Any seizure activity in the postpartum period is a medical emergency. Per CDC Hear Her, call 911 immediately — seizures may indicate eclampsia even after delivery.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Fever",
+      "detail": "A fever of 100.4°F (38°C) or higher in the postpartum period. Per CDC Hear Her, postpartum fever may indicate endometritis, wound infection, or other serious infection requiring prompt evaluation.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Leg Swelling, Redness, or Pain",
+      "detail": "Swelling, redness, warmth, or pain in one or both legs. Per CDC Hear Her, these signs may indicate deep vein thrombosis — a dangerous blood clot that can travel to the lungs.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Swelling in Face or Hands",
+      "detail": "Sudden or severe swelling in the face or hands. Per CDC Hear Her, this may be a sign of postpartum preeclampsia, which can occur up to 6 weeks after delivery and requires immediate evaluation.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Extreme Fatigue or Shortness of Breath",
+      "detail": "Extreme exhaustion or shortness of breath beyond normal postpartum tiredness. Per CDC Hear Her, these symptoms may indicate postpartum cardiomyopathy or severe anemia and require clinical evaluation.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Thoughts of Self-Harm or Harming Baby",
+      "detail": "Any thoughts of harming yourself or your baby. Per CDC Hear Her, these thoughts require immediate clinical attention. Call your provider or 988 (Suicide and Crisis Lifeline) right away.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Severe Sadness or Hopelessness",
+      "detail": "Feeling very sad, hopeless, or unable to bond with your baby for more than a few days. Per CDC Hear Her, these may be signs of postpartum depression and require evaluation, support, and treatment.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Heavy Postpartum Bleeding",
+      "detail": "Soaking more than one pad per hour or passing large clots after the first few days. Per CDC Hear Her, heavy postpartum bleeding is a medical emergency — call 911.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    },
+    {
+      "label": "Severe Abdominal, Back, or Pelvic Pain",
+      "detail": "Severe or persistent pain in the abdomen, back, or pelvis that does not improve. Per CDC Hear Her, this may indicate infection, internal bleeding, or other serious complications requiring immediate care.",
+      "confidence": "H",
+      "source_name": "CDC Hear Her",
+      "source_url": "https://www.cdc.gov/hearher"
+    }
+  ]
+}
