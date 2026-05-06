@@ -1,11 +1,247 @@
-/* ECHO — shared styles (Tailwind handles layout; this file holds only what Tailwind cannot) */
+/* ECHO — shared styles */
+/* Tailwind CDN handles layout; this file holds tokens and anything Tailwind CDN cannot express */
 
-.confidence-H  { @apply bg-red-100 text-red-800 border border-red-300; }
-.confidence-M  { @apply bg-yellow-100 text-yellow-800 border border-yellow-300; }
-.confidence-L  { @apply bg-green-100 text-green-800 border border-green-300; }
-.confidence-FLAGGED { @apply bg-purple-100 text-purple-800 border border-purple-300; }
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
+/* ── Token layer ── */
+:root {
+  --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Surfaces */
+  --surface:          #ffffff;
+  --surface-subtle:   #f8fafc;
+  --surface-inset:    #f1f5f9;
+
+  /* Text */
+  --text-primary:     #0f172a;
+  --text-secondary:   #475569;
+  --text-muted:       #94a3b8;
+
+  /* Borders */
+  --border:           #e2e8f0;
+  --border-strong:    #cbd5e1;
+
+  /* Accent — deep clinical blue */
+  --accent:           #0f4c81;
+  --accent-hover:     #0a3d6e;
+  --accent-light:     #dbeafe;
+  --accent-text:      #1d4ed8;
+
+  /* Confidence badges: H = green (reliable), M = amber, L = slate, FLAGGED = red */
+  --conf-h-bg:        #dcfce7;
+  --conf-h-text:      #15803d;
+  --conf-h-border:    #86efac;
+
+  --conf-m-bg:        #fef9c3;
+  --conf-m-text:      #a16207;
+  --conf-m-border:    #fde047;
+
+  --conf-l-bg:        #f1f5f9;
+  --conf-l-text:      #475569;
+  --conf-l-border:    #cbd5e1;
+
+  --conf-flagged-bg:      #fee2e2;
+  --conf-flagged-text:    #b91c1c;
+  --conf-flagged-border:  #fca5a5;
+
+  /* Urgency tier */
+  --urgency-high-bg:   #fee2e2;
+  --urgency-high-text: #b91c1c;
+  --urgency-med-bg:    #fef9c3;
+  --urgency-med-text:  #92400e;
+  --urgency-low-bg:    #dcfce7;
+  --urgency-low-text:  #15803d;
+}
+
+/* ── Base ── */
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-subtle);
+}
+
+.echo-display {
+  font-family: var(--font-display);
+}
+
+/* ── Confidence badges ── */
+.confidence-H,
+.confidence-M,
+.confidence-L,
+.confidence-FLAGGED {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-width: 1px;
+  border-style: solid;
+  line-height: 1.5;
+}
+
+.confidence-H {
+  background: var(--conf-h-bg);
+  color: var(--conf-h-text);
+  border-color: var(--conf-h-border);
+}
+
+.confidence-M {
+  background: var(--conf-m-bg);
+  color: var(--conf-m-text);
+  border-color: var(--conf-m-border);
+}
+
+.confidence-L {
+  background: var(--conf-l-bg);
+  color: var(--conf-l-text);
+  border-color: var(--conf-l-border);
+}
+
+.confidence-FLAGGED {
+  background: var(--conf-flagged-bg);
+  color: var(--conf-flagged-text);
+  border-color: var(--conf-flagged-border);
+}
+
+/* ── Urgency badges ── */
+.urgency-HIGH {
+  background: var(--urgency-high-bg);
+  color: var(--urgency-high-text);
+}
+.urgency-MED {
+  background: var(--urgency-med-bg);
+  color: var(--urgency-med-text);
+}
+.urgency-LOW {
+  background: var(--urgency-low-bg);
+  color: var(--urgency-low-text);
+}
+
+/* ── Priority rank badge ── */
 .priority-badge {
-    min-width: 1.75rem;
-    text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Section label ── */
+.echo-section-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── Field-level validation error ── */
+.field-error {
+  font-size: 0.75rem;
+  color: var(--conf-flagged-text);
+  margin-top: 0.25rem;
+  display: none;
+}
+.field-error.visible {
+  display: block;
+}
+
+/* ── Loading animation ── */
+@keyframes echo-spin {
+  to { transform: rotate(360deg); }
+}
+.echo-spinner {
+  display: inline-block;
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: echo-spin 0.7s linear infinite;
+  vertical-align: -0.1em;
+  margin-right: 0.375rem;
+}
+
+@keyframes echo-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+.echo-loading-pulse {
+  animation: echo-pulse 1.6s ease-in-out infinite;
+}
+
+/* ── Submit button ── */
+.echo-btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+}
+.echo-btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+.echo-btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Input / select base ── */
+.echo-input {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+}
+.echo-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(15,76,129,0.12);
+}
+.echo-input.error {
+  border-color: var(--conf-flagged-text);
+}
+
+/* ── Card ── */
+.echo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+/* ── Checklist item ── */
+.checklist-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.625rem;
+  padding: 1rem;
+}
+.checklist-item.flagged {
+  border-color: var(--conf-flagged-border);
+  background: #fff5f5;
 }

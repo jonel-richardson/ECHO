@@ -7,51 +7,136 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="min-h-screen" style="background: var(--surface-subtle);">
 
-    <header class="bg-white border-b border-gray-200 px-6 py-4">
-        <div class="max-w-3xl mx-auto flex items-center justify-between">
+    <header class="border-b" style="background: var(--surface); border-color: var(--border);">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
             <div>
-                <h1 class="text-xl font-bold text-gray-900">ECHO</h1>
-                <p class="text-xs text-gray-500">Early Care Handoff Observer — Provider Tool</p>
+                <h1 class="echo-display text-2xl" style="color: var(--accent);">ECHO</h1>
+                <p class="text-xs mt-0.5" style="color: var(--text-muted);">Early Care Handoff Observer — Provider Tool</p>
             </div>
-            <a href="index.html" class="text-sm text-blue-600 hover:underline">← New Patient</a>
+            <a href="index.html"
+               class="text-sm font-medium px-3 py-1.5 rounded-md transition-colors"
+               style="color: var(--accent); background: var(--accent-light);">
+                ← New Patient
+            </a>
         </div>
     </header>
 
-    <main class="max-w-3xl mx-auto px-6 py-8 space-y-6">
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8 space-y-5">
 
-        <!-- 1. Patient context header -->
-        <div id="patient-header" class="bg-white rounded-xl border border-gray-200 shadow-sm p-5"></div>
+        <!-- ═══════════════════════════════════════════════
+             Section 1 — Patient context header
+             Rendered by renderPatientHeader() in app.js.
+             Displays: age range · race/ethnicity · payer ·
+             state · weeks postpartum. No name. No MRN.
+        ════════════════════════════════════════════════ -->
+        <div id="patient-header" class="echo-card p-5"></div>
 
-        <!-- 2. Communication framing -->
-        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5">
-            <h2 class="text-sm font-semibold text-blue-800 uppercase tracking-wide mb-2">Clinical Context</h2>
-            <div id="framing-block" class="text-sm"></div>
+        <!-- ═══════════════════════════════════════════════
+             Section 2 — Prioritized warning signs
+             Source: CDC Hear Her urgent maternal warning signs.
+             Items inferred by source field in app.js:
+               source contains "CDC" | "Hear Her" → this section.
+             Ordered by priority_rank ascending (1 = highest).
+             Each item: label · detail · action · source · confidence badge.
+        ════════════════════════════════════════════════ -->
+        <section aria-labelledby="warning-signs-heading">
+            <h2 id="warning-signs-heading" class="echo-section-label mb-3">
+                Prioritized Warning Signs — CDC Hear Her
+            </h2>
+            <div id="warning-signs" class="space-y-3"></div>
+            <p id="warning-signs-empty" class="hidden text-sm italic px-1"
+               style="color: var(--text-muted);">
+                No warning sign data available for this patient.
+            </p>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             Section 3 — SDOH screening flags
+             Source: CMS AHC HRSN 10 core domains.
+             Items inferred by source field in app.js:
+               source contains "CMS" | "HRSN" | "AHC" | "SDOH" → this section.
+             Confidence = M for all SDOH flags.
+        ════════════════════════════════════════════════ -->
+        <section aria-labelledby="sdoh-heading">
+            <h2 id="sdoh-heading" class="echo-section-label mb-3">
+                SDOH Screening Flags — CMS AHC HRSN
+            </h2>
+            <div id="sdoh-flags" class="space-y-3"></div>
+            <p id="sdoh-flags-empty" class="hidden text-sm italic px-1"
+               style="color: var(--text-muted);">
+                No SDOH data available for this patient.
+            </p>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             Section 4 — Hospital commitment status
+             Three data points:
+               · CMS Birthing-Friendly designation
+               · HCAHPS discharge information score
+               · State-level PPC-AD rate (CMS Core Set)
+             Rendered by renderHospitalStatus() in app.js.
+        ════════════════════════════════════════════════ -->
+        <section aria-labelledby="hospital-status-heading">
+            <h2 id="hospital-status-heading" class="echo-section-label mb-3">
+                Hospital Commitment Status
+            </h2>
+            <div id="hospital-status" class="echo-card p-5"></div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             Section 5 — Conflict flags
+             All items with confidence = "FLAGGED".
+             BOTH conflicting data points always shown.
+             Never hidden, collapsed, or resolved here.
+             CNM decides. Hidden when conflict_flags is empty.
+        ════════════════════════════════════════════════ -->
+        <div id="conflict-flags" class="echo-card p-5 hidden"
+             style="border-color: var(--conf-flagged-border); background: #fff5f5;">
         </div>
 
-        <!-- 3. Prioritized checklist items (warning signs + SDOH + findings) -->
-        <div>
-            <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Screening Checklist — Ordered by Priority</h2>
-            <div id="checklist-items" class="space-y-3"></div>
+        <!-- ═══════════════════════════════════════════════
+             Section 6 — Communication framing block
+             Original framing copy from N12 (framing_library.json).
+             Public-domain sources listed inline.
+             AWHONN appears only as a "see also" reference link
+             (awhonn.org/awhonn-sbars) — never reproduced inline.
+             Rendered by renderFramingBlock() in app.js.
+        ════════════════════════════════════════════════ -->
+        <section aria-labelledby="framing-heading">
+            <h2 id="framing-heading" class="echo-section-label mb-3">
+                Communication Framing
+            </h2>
+            <div class="echo-card p-5" style="border-color: #bfdbfe; background: #eff6ff;">
+                <div id="framing-block" class="text-sm" style="color: var(--text-primary);"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             Section 7 — Data confidence summary
+             Rendered as-returned from ChecklistOutput.confidence_summary.
+        ════════════════════════════════════════════════ -->
+        <div class="echo-card p-5">
+            <h3 class="echo-section-label mb-2">Data Confidence Summary</h3>
+            <p id="confidence-summary" class="text-sm leading-relaxed"
+               style="color: var(--text-secondary);"></p>
         </div>
 
-        <!-- 4. Hospital commitment status -->
-        <div id="hospital-status" class="bg-white rounded-xl border border-gray-200 shadow-sm p-5 text-sm"></div>
-
-        <!-- 5. Conflict flags -->
-        <div id="conflict-flags" class="bg-white rounded-xl border border-purple-200 shadow-sm p-5 text-sm hidden"></div>
-
-        <!-- 6. Data confidence summary -->
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
-            <h3 class="text-sm font-semibold text-gray-700 mb-1">Data Confidence Summary</h3>
-            <p id="confidence-summary" class="text-sm text-gray-600"></p>
-        </div>
-
-        <!-- 7. Clinical disclaimer -->
-        <div class="bg-gray-100 rounded-xl border border-gray-300 p-5">
-            <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Clinical Disclaimer</h3>
-            <p id="clinical-disclaimer" class="text-xs text-gray-600 leading-relaxed"></p>
+        <!-- ═══════════════════════════════════════════════
+             Section 8 — Clinical disclaimer
+             Rendered as-returned from ChecklistOutput.clinical_disclaimer.
+             EXACT STRING. Never modified. Always present.
+             Expected: "ECHO is clinical decision support, not a diagnostic
+             engine. All items are for clinical review only. Action language
+             reflects screening guidance — not a diagnosis or treatment
+             recommendation. Source citations are provided for every item.
+             CNM clinical judgment governs all care decisions."
+        ════════════════════════════════════════════════ -->
+        <div class="rounded-xl p-5" style="background: var(--surface-inset); border: 1px solid var(--border-strong);">
+            <h3 class="echo-section-label mb-2">Clinical Disclaimer</h3>
+            <p id="clinical-disclaimer" class="text-xs leading-relaxed"
+               style="color: var(--text-secondary);"></p>
         </div>
 
     </main>
