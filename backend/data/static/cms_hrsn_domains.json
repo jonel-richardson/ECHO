@@ -1,0 +1,150 @@
+{
+  "core_domains": [
+    {
+      "label": "Housing Instability — Current",
+      "detail": "Screens for current housing instability. Does the patient have a place to sleep tonight and in the coming nights? Unstable housing is associated with worse postpartum health outcomes and increased stress.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "HOUSING_CURRENT"
+    },
+    {
+      "label": "Housing Instability — Past Year",
+      "detail": "Screens for housing instability in the past year. Has the patient been worried about losing her housing, been evicted, or been unable to pay rent or mortgage? Past instability predicts future risk.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "HOUSING_HISTORY"
+    },
+    {
+      "label": "Food Insecurity — Worry",
+      "detail": "Screens for food insecurity by asking whether the patient worries about running out of food before having money to buy more. Food insecurity during the postpartum period affects both maternal and infant health.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "FOOD_WORRY"
+    },
+    {
+      "label": "Food Insecurity — Quantity",
+      "detail": "Screens for food insecurity by asking whether the patient or her family ate less than they felt they should because there was not enough money for food. This is a direct measure of food insufficiency.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "FOOD_QUANTITY"
+    },
+    {
+      "label": "Transportation — Access to Care",
+      "detail": "Screens for transportation problems that affect the patient's ability to get medical care. Lack of reliable transportation is a leading cause of missed postpartum appointments and delayed care.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "TRANSPORT_ACCESS"
+    },
+    {
+      "label": "Transportation — Need for Help",
+      "detail": "Screens for whether the patient needs help with transportation to medical appointments or to get things needed for daily living. Connects to community transportation assistance programs.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "TRANSPORT_NEED"
+    },
+    {
+      "label": "Utility Needs — Electricity or Gas Shut-Off",
+      "detail": "Screens for whether utilities have been shut off for non-payment in the past year. Loss of electricity or gas affects safe food storage, medication refrigeration, and infant care.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "UTILITY_SHUTOFF"
+    },
+    {
+      "label": "Utility Needs — Heat or Cooling",
+      "detail": "Screens for whether the patient has been unable to afford heat in winter or cooling in summer. Extreme temperatures pose risks to both mother and newborn and are a marker of utility insecurity.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "UTILITY_HEAT"
+    },
+    {
+      "label": "Interpersonal Safety — Physical Violence",
+      "detail": "Screens for whether the patient has been physically hurt, hit, slapped, kicked, or otherwise physically abused by anyone in the past year. The postpartum period is a high-risk time for intimate partner violence.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "SAFETY_VIOLENCE"
+    },
+    {
+      "label": "Interpersonal Safety — Feeling Safe",
+      "detail": "Screens for whether the patient feels safe in her home and immediate environment. Feeling unsafe at home is associated with elevated stress, worse mental health outcomes, and delayed care-seeking.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "SAFETY_FEEL"
+    }
+  ],
+  "supplemental_domains": [
+    {
+      "label": "Financial Resource Strain",
+      "detail": "Screens for financial stress and inability to meet basic financial needs. Financial strain during the postpartum period is a major driver of unmet health needs and missed appointments.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "FINANCIAL"
+    },
+    {
+      "label": "Employment",
+      "detail": "Screens for current employment status and whether the patient needs help finding or keeping work. Postpartum return-to-work timing and job security affect access to health insurance and income stability.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "EMPLOYMENT"
+    },
+    {
+      "label": "Family and Community Support",
+      "detail": "Screens for social isolation and available family or community support. Lack of social support in the postpartum period is a significant risk factor for depression and adverse maternal outcomes.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "SOCIAL_SUPPORT"
+    },
+    {
+      "label": "Education",
+      "detail": "Screens for educational needs and whether the patient is interested in further education or job training. Educational attainment is associated with long-term maternal health outcomes and economic stability.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "EDUCATION"
+    },
+    {
+      "label": "Physical Activity",
+      "detail": "Screens for physical activity level and barriers to exercise. Returning to physical activity postpartum supports mental health, physical recovery, and chronic disease prevention, and should be tailored to birth recovery status.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "PHYSICAL_ACTIVITY"
+    },
+    {
+      "label": "Substance Use",
+      "detail": "Screens for alcohol, tobacco, and other substance use. Substance use in the postpartum period affects maternal mental health, breastfeeding safety, and infant wellbeing, and requires compassionate, non-judgmental clinical response.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "SUBSTANCE_USE"
+    },
+    {
+      "label": "Mental Health",
+      "detail": "Screens for self-reported mental health concerns beyond the formal postpartum depression screen. Includes anxiety, trauma history, and other mental health needs. Connects to behavioral health referral pathways.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "MENTAL_HEALTH"
+    },
+    {
+      "label": "Disabilities and Special Needs",
+      "detail": "Screens for physical, cognitive, or developmental disabilities that may affect the patient's ability to care for herself or her infant. Identifies need for additional care coordination or community support services.",
+      "confidence": "M",
+      "source_name": "CMS AHC HRSN Screening Tool",
+      "source_url": "https://www.cms.gov/priorities/innovation/innovation-models/ahc",
+      "domain_code": "DISABILITY"
+    }
+  ]
+}

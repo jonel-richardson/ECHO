@@ -84,3 +84,46 @@ class TestAcogFindingItem:
             assert actual <= 100, (
                 f"{entry['label']} detail has {actual} words — exceeds 100 word ACOG excerpt cap"
             )
+
+
+class TestCmsHrsnDomains:
+    def _load(self):
+        return json.loads((STATIC / "cms_hrsn_domains.json").read_text())
+
+    def test_file_exists(self):
+        assert (STATIC / "cms_hrsn_domains.json").exists()
+
+    def test_top_level_keys(self):
+        data = self._load()
+        assert "core_domains" in data
+        assert "supplemental_domains" in data
+
+    def test_exactly_10_core_domains(self):
+        data = self._load()
+        assert len(data["core_domains"]) == 10, (
+            f"Expected 10 core domains, got {len(data['core_domains'])}"
+        )
+
+    def test_exactly_8_supplemental_domains(self):
+        data = self._load()
+        assert len(data["supplemental_domains"]) == 8, (
+            f"Expected 8 supplemental domains, got {len(data['supplemental_domains'])}"
+        )
+
+    def test_all_entries_have_required_fields(self):
+        data = self._load()
+        required = {"label", "detail", "confidence", "source_name", "source_url", "domain_code"}
+        for entry in data["core_domains"] + data["supplemental_domains"]:
+            assert required.issubset(entry.keys()), f"Missing fields in: {entry}"
+
+    def test_all_confidence_medium(self):
+        data = self._load()
+        for entry in data["core_domains"] + data["supplemental_domains"]:
+            assert entry["confidence"] == "M", (
+                f"Expected M confidence for SDOH domain {entry['label']}, got {entry['confidence']}"
+            )
+
+    def test_domain_codes_unique(self):
+        data = self._load()
+        codes = [e["domain_code"] for e in data["core_domains"] + data["supplemental_domains"]]
+        assert len(codes) == len(set(codes)), "Duplicate domain_code found"
