@@ -1,9 +1,19 @@
 # ECHO_BUILD_PLAN.md — Phase 1 Build Steps by Owner
-**Version:** 2.1 | **Project:** ECHO — Early Care Handoff Observer
+**Version:** 2.2 | **Project:** ECHO — Early Care Handoff Observer
 **Team:** Luba Kaper · Paula · Jonel
 
 > Build in this exact sequence. Each step must be complete and tested before the next begins.
 > Every function must have a unit test before handoff.
+
+---
+
+## Changes from v2.1
+
+This version applies the data and licensing decisions captured in `ECHO_v2_data_summary.md`. Three things changed:
+
+1. **AWHONN POST-BIRTH replaced by CDC Hear Her warning signs.** AWHONN POST-BIRTH is licensed and cannot be reproduced in a commercial tool. CDC Hear Her covers the same clinical ground and is public domain.
+2. **AWHONN SBAR Library replaced by an original Communication Framing Library.** AWHONN's Terms of Use prohibit reproduction of SBAR content in a commercial environment. The framing library uses original copy grounded in public-domain sources (CDC, peer-reviewed literature). AWHONN is cited as a "see also" reference link only.
+3. **ACOG excerpt cap added.** ACOG permits excerpts under approximately 100 words with attribution. Subagent 4 enforces this rule when constructing findings from ACOG Committee Opinion 736.
 
 ---
 
@@ -30,20 +40,27 @@ Build all dataclasses in `/backend/schemas/` first. Everything else depends on t
 
 Curate and validate all files in `/backend/data/` and `/backend/data/static/`.
 
-| File | Content |
-|---|---|
-| `cms_birthing_friendly.csv` | CMS Birthing-Friendly hospital designations |
-| `cms_hcahps.csv` | HCAHPS discharge information scores |
-| `kff_medicaid_postpartum.csv` | Medicaid 12-month extension status by state |
-| `nchs_nvss_mortality.csv` | Maternal mortality rates by race and state |
-| `awhonn_post_birth.json` | 9 canonical warning signs: label, detail, source, action_language |
-| `acog_4th_trimester.json` | Postpartum care timeline keyed by weeks_postpartum range |
-| `cms_hrsn_domains.json` | 10 SDOH domains + 8 supplemental: domain, screening_question, source |
-| `awhonn_sbar_library.json` | 11 sourced SBAR framing docs keyed by patient identity dimensions |
+| File | Content | License |
+|---|---|---|
+| `cms_birthing_friendly.csv` | CMS Birthing-Friendly hospital designations | Public domain |
+| `cms_hcahps_ny.csv` | NY HCAHPS discharge information scores | Public domain |
+| `cms_core_set_ny_2023.xlsx` | NY Medicaid quality measures (sheet 52. PPC-AD is headline) | Public domain |
+| `cms_core_set_tx_2023.xlsx` | TX Medicaid quality measures (sheet 52. PPC-AD is headline) | Public domain |
+| `kff_postpartum_coverage.csv` | Medicaid 12-month extension status by state | Public domain |
+| `nnpqc_funding.csv` | National Network of Perinatal Quality Collaboratives funding | Public domain |
+| `nchs_maternal_mortality.csv` | Maternal mortality rates by race and age, transcribed from Health E-Stat 113 PDF table | Public domain |
+| `cdc_hear_her_signs.json` | CDC Hear Her urgent maternal warning signs | Public domain |
+| `acog_4th_trimester.json` | Discrete excerpts from ACOG Committee Opinion 736, each under ~100 words, with inline attribution | Licensed (excerpt rule applies) |
+| `cms_hrsn_domains.json` | 10 core + 8 supplemental SDOH domains from CMS AHC HRSN Screening Tool | Public domain |
+| `framing_library.json` | Original communication framing copy keyed by patient identity dimensions, grounded in public-domain sources, with AWHONN cited as a "see also" reference link | Original work |
 
-**Note:** AWHONN and ACOG content is licensed. For Demo Day, use paraphrased clinical summaries that cite the source. Do not embed verbatim licensed text until permissions are confirmed. Paula owns the permissions question.
+### Licensing rules for Step 2
 
-**Done when:** All files load without error. CSVs have expected columns. JSON files validate against expected structure.
+- **CDC, NCHS, CMS, KFF, NNPQC, TCHMB content is public domain.** Use freely. No attribution requirement beyond standard citation.
+- **ACOG Committee Opinion 736 excerpts must stay under ~100 words per finding** with inline attribution. Anything longer requires written permission from ACOG.
+- **AWHONN content cannot be reproduced or paraphrased.** ECHO references AWHONN as a "see also" pointer with a URL (`awhonn.org/awhonn-sbars`). Original framing copy is grounded in public-domain sources and never paraphrases AWHONN material. Pursuing an AWHONN license is a v3 question.
+
+**Done when:** All files load without error. CSVs have expected columns. JSON files validate against expected structure. No file contains AWHONN-sourced text.
 
 ---
 
@@ -58,11 +75,13 @@ Each subagent must:
 
 | File | Node | Owner | Data Sources |
 |---|---|---|---|
-| `mortality.py` | N3 | Jonel | nchs_nvss_mortality.csv, NY/TX MMRB |
-| `guideline.py` | N4 | Luba | acog_4th_trimester.json, awhonn_post_birth.json |
-| `sdoh.py` | N5 | Luba | cms_hrsn_domains.json |
-| `bundle.py` | N6 | Jonel | cms_birthing_friendly.csv, cms_hcahps.csv |
-| `state_context.py` | N7 | Jonel | kff_medicaid_postpartum.csv |
+| `mortality.py` | N3 | Jonel | `nchs_maternal_mortality.csv`, NY MMRB, TX MMRB |
+| `guideline.py` | N4 | Luba | `acog_4th_trimester.json`, `cdc_hear_her_signs.json` |
+| `sdoh.py` | N5 | Luba | `cms_hrsn_domains.json` |
+| `bundle.py` | N6 | Jonel | `cms_birthing_friendly.csv`, `cms_hcahps_ny.csv`, `cms_core_set_ny_2023.xlsx`, `cms_core_set_tx_2023.xlsx` |
+| `state_context.py` | N7 | Jonel | `kff_postpartum_coverage.csv`, `nnpqc_funding.csv` |
+
+**Subagent 4 (Guideline) excerpt rule:** When constructing findings from ACOG Committee Opinion 736, each excerpt stays under approximately 100 words and includes inline attribution to ACOG. CDC Hear Her content has no excerpt limit.
 
 **Done when:** Each subagent tested individually against both demo fixtures (Maya and Janet) and returns a valid SubAgentReturn.
 
@@ -121,12 +140,14 @@ Each subagent must:
 **File:** `backend/output_generator.py`
 
 1. Receives ScoredOutput
-2. Loads matching SBAR framing from `awhonn_sbar_library.json` by patient identity
+2. Loads matching framing copy from `framing_library.json` by patient identity dimensions
 3. Builds prompt using the Prompt Template (see CLAUDE.md)
 4. Calls Anthropic API: model = `claude-sonnet-4-20250514`, max_tokens = 2000, no streaming
 5. Parses and validates ChecklistOutput from response
 6. Every ChecklistItem must have: label, detail, action, source, confidence, priority_rank
 7. Returns ChecklistOutput
+
+**Output Generator licensing rule:** The system prompt instructs the model to write original framing copy grounded in cited public-domain sources, not to reproduce or paraphrase AWHONN content. AWHONN appears only as a "see also" reference at the bottom of the framing block.
 
 **Done when:** Unit test against both fixtures returns valid ChecklistOutput with all fields populated and clinical disclaimer present.
 
@@ -181,12 +202,13 @@ CORS: allow all origins for Demo Day.
 ### checklist.html (N13)
 Display order:
 1. Patient context header (no name or MRN)
-2. Prioritized warning signs (AWHONN POST-BIRTH, ordered by priority_rank)
+2. Prioritized warning signs (CDC Hear Her, ordered by priority_rank)
 3. SDOH screening flags (CMS AHC HRSN)
 4. Hospital commitment status
 5. Conflict flags (FLAGGED — show both data points)
-6. Data confidence summary
-7. Clinical disclaimer (hardcoded, never modified)
+6. Communication framing block (from `framing_library.json`, with AWHONN cited as "see also" reference link)
+7. Data confidence summary
+8. Clinical disclaimer (hardcoded, never modified)
 
 **Done when:** Both demo fixtures render visibly different checklists in the browser. No console errors. Clinical disclaimer present.
 
@@ -202,5 +224,7 @@ Display order:
 - [ ] Maya and Janet produce different priority_rank ordering and different disparity_flag values
 - [ ] Clinical disclaimer is present in every ChecklistOutput
 - [ ] No diagnostic language ("Patient has...", "Diagnose...") in any output string
+- [ ] No AWHONN-sourced text appears in any static data file or generated output (AWHONN is cited as a "see also" reference link only)
+- [ ] No ACOG excerpt exceeds approximately 100 words
 
 Run: `pytest tests/`
