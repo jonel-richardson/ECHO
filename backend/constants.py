@@ -18,4 +18,20 @@ ACOG_CO_736_SOURCE_URL = "https://www.acog.org/clinical/clinical-guidance/commit
 CMS_HRSN_SOURCE_NAME = "CMS AHC HRSN Screening Tool"
 CMS_HRSN_SOURCE_URL = "https://www.cms.gov/priorities/innovation/innovation-models/ahc"
 
+CMS_BIRTHING_FRIENDLY_SOURCE_NAME = "CMS Birthing-Friendly Hospital Designation"
+CMS_BIRTHING_FRIENDLY_SOURCE_URL = (
+    "https://data.cms.gov/provider-data/birthing-friendly-hospitals-and-health-systems"
+)
+CMS_HCAHPS_SOURCE_NAME = "CMS HCAHPS Hospital Survey"
+CMS_HCAHPS_SOURCE_URL = "https://www.hcahpsonline.org/"
+CMS_CORE_SET_SOURCE_NAME = "CMS Medicaid Adult Core Set (PPC-AD)"
+CMS_CORE_SET_SOURCE_URL = (
+    "https://www.medicaid.gov/medicaid/quality-of-care/performance-measurement/"
+    "adult-and-child-health-care-quality-measures"
+)
+
+HCAHPS_DISCHARGE_MEASURE_ID = "H_COMP_6_LINEAR_SCORE"
+PPC_AD_SHEET_NAME = "52. PPC-AD"
+PPC_AD_LATEST_YEAR = 2023
+
 ACOG_WORD_CAP = 100
