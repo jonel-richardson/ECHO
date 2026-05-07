@@ -73,33 +73,9 @@
                         <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State <span class="text-red-500">*</span></label>
                         <select id="state" name="state"
                             class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                            <option value="" disabled selected>Select state</option>
+                            <option value="" disabled selected>Select state...</option>
                             <option value="NY">New York (NY)</option>
                             <option value="TX">Texas (TX)</option>
-                            <option value="AL">Alabama</option><option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option><option value="AR">Arkansas</option>
-                            <option value="CA">California</option><option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option><option value="DE">Delaware</option>
-                            <option value="FL">Florida</option><option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option><option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option><option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option><option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option><option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option><option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option><option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option><option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option><option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option><option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option><option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option><option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option><option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option><option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option><option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option><option value="UT">Utah</option>
-                            <option value="VT">Vermont</option><option value="VA">Virginia</option>
-                            <option value="WA">Washington</option><option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
                         </select>
                     </div>
                 </div>
@@ -107,17 +83,21 @@
                 <!-- Hospital name -->
                 <div>
                     <label for="hospital_name" class="block text-sm font-medium text-gray-700 mb-1">Hospital Name <span class="text-red-500">*</span></label>
-                    <input id="hospital_name" name="hospital_name" type="text"
-                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="e.g. NewYork-Presbyterian Hospital" required />
+                    <select id="hospital_name" name="hospital_name" disabled
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 disabled:text-gray-400" required>
+                        <option value="" disabled selected>Select state first...</option>
+                    </select>
                 </div>
 
                 <!-- Primary language -->
                 <div>
                     <label for="primary_language" class="block text-sm font-medium text-gray-700 mb-1">Primary Language <span class="text-red-500">*</span></label>
-                    <input id="primary_language" name="primary_language" type="text"
-                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="e.g. English" required />
+                    <select id="primary_language" name="primary_language"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="" disabled selected>Select language...</option>
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                    </select>
                 </div>
 
                 <!-- Complications (multi-select checkboxes) -->

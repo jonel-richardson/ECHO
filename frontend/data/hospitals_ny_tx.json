@@ -1,0 +1,1110 @@
+{
+  "NY": [
+    {
+      "name": "Adirondack Medical Center - Saranac Lake",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Albany Medical Center Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Arnot Ogden Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Auburn  Community  Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Bassett Healthcare",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Bellevue Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Bronxcare Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Brookdale Hospital Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Brooklyn Hospital Center - Downtown Campus",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Canton-Potsdam Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Cayuga Medical Center at Ithaca",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Champlain Valley Physicians Hospital Medical Ctr",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Chenango Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Corning Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Crouse Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Elizabethtown Community Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ellis Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Elmhurst Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "F F Thompson Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Flushing Hospital Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Garnet Health  Medical Center Catskills",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Garnet Health Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Glens Falls Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Good Samaritan Hospital Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Good Samaritan Hospital of Suffern",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Guthrie Cortland Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Harlem Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Healthalliance Hospital Marys Avenue Campus",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Highland Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hudson Valley Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Jacobi Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Jamaica Hospital Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Jones Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Kaleida Health",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Kings County Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Lenox Hill Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Lincoln Medical & Mental Health Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Long Island Jewish Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Maimonides Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Mercy Hospital of Buffalo",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Mercy Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Metropolitan Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Montefiore Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Montefiore New Rochelle Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Montefiore St Luke\\'s Cornwall",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Mount Sinai Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Mount Sinai South Nassau",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Mount Sinai West",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Nassau University Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Nathan Littauer Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "New York-Presbyterian Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "New York-Presbyterian/Queens",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Newark-Wayne Community Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Niagara Falls Memorial Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Nicholas H Noyes Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "North Shore University Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Northern Dutchess Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Northern Westchester Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ns/Lij Hs Huntington Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ns/Lij Hs Southside Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Nyack Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "NYU Langone Hospitals",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Olean General Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Oneida Health Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Our Lady of Lourdes Memorial Hospital, Inc",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Peconic Bay Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Phelps Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Putnam Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Queens Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Richmond University Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Rochester General Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Rome Memorial Hospital, Inc",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Samaritan Hospital of Troy, New York",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Samaritan Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Saratoga Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Schuyler Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Sisters of Charity Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "South Brooklyn Health",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Anthony Community Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Barnabas Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Charles Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St John\\'s Episcopal Hospital at South Shore",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St John\\'s Riverside Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Joseph\\'s Hospital Health Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Mary\\'s Healthcare",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Peter\\'s Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Staten Island University Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Strong Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Suny/Downstate University Hospital of Brooklyn",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Suny/Stony Brook University Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "United Health Services Hospitals, Inc",
+      "birthing_friendly": true
+    },
+    {
+      "name": "United Memorial Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Unity Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "University Hospital S U N Y Health Science Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "UPMC Chautauqua at Wca",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Vassar Brothers Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Westchester Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "White Plains Hospital Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Woodhull Medical & Mental Health Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Wyckoff Heights Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Wynn Hospital",
+      "birthing_friendly": true
+    }
+  ],
+  "TX": [
+    {
+      "name": "Adventhealth Central Texas",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ascension  Seton Hays",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ascension Seton Medical Center Austin",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ascension Seton Northwest",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ascension Seton Williamson",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baptist Beaumont Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baptist Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott &  White Medical Center - Centennial",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Hospital Brenham",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center  Grapevine",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center - Frisco",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center - Marble Falls",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center - Round Rock",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center - Temple",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center at Irving",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center Hillcrest",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center- College Stati",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott & White Medical Center- Waxahachie",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott and White  Medical Center  McKinney",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott and White All Saints Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor Scott and White Medical Center Lake Pointe",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Baylor University Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Big Bend Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Bsa Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Cedar Park Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Chi St Joseph Health Regional Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Chi St Lukes Health Memorial Livingston",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Chi St Lukes Health Memorial Lufkin",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Childress Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Good Shepherd Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Mother Frances Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Mother Frances Hospital Sulphur Springs",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Santa Rosa Hospital-San Marcos",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Santa Rosa Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Southeast Texas- St Elizabeth",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Spohn Hospital Alice",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Spohn Hospital Beeville",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Spohn Hospital Corpus Christi",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus Spohn Hospital Kleberg",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Christus St Michael Health System",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Citizens Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Columbus Community Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Corpus Christi Medical Center,the",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Covenant Hospital Levelland",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Covenant Hospital Plainview",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Cuero Regional Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Dallas Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Doctors Hospital of Laredo",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Doctors Hosptal at Renaissance",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Faith Community Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Fort Duncan Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Goodall Witcher Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Guadalupe Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Harlingen Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Harris Health",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hca Houston Healthcare Clear Lake",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hca Houston Healthcare Conroe",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hca Houston Healthcare Kingwood",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hca Houston Healthcare Northwest",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hca Houston Healthcare Southeast",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hca Houston Healthcare Tomball",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hca Houston Healthcare West",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hendrick Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hendrick Medical Center Brownwood",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hereford Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hill Country Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Houston Methodist Baytown Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Houston Methodist Clear Lake Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Houston Methodist Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Houston Methodist Sugarland Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Houston Methodist the Woodlands Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Houston Methodist West Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Houston Methodist Willowbrook Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Hunt Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Huntsville Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Jps Health Network",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Knapp Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Lake Granbury Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Lamb Healthcare Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Laredo Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Las Palmas Medical Center A Campus of Lpds Healthc",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Longview Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Matagorda Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical Center Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical Center of McKinney",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Alliance",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Arlington",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Dallas Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Denton",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Las Colinas",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Lewisville",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Plano",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medical City Weatherford",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Medina Regional Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Memorial Hermann - Texas Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Memorial Hermann Hospital System",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Memorial Hermann Katy Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Memorial Hermann Memorial City Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Memorial Hermann Northeast Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Memorial Hermann Sugar Land Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Methodist Charlton Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Methodist Dallas Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Methodist Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Methodist Hospital  Stone Oak",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Methodist Mansfield Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Methodist Midlothian Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Methodist Richardson Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Midland Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Mission Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Nacogdoches Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Navarro Regional Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "North Austin Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "North Texas Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Northwest Texas Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Oakbend Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Ochiltree General Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Odessa Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Palestine Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Palo Pinto General Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Paris Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Parkland Health & Hospital System",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Permian Regional Medical Center Andrews County Ho",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Peterson Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Resolute Health Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Rio Grande Regional Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Rolling Plains Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Round Rock Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Scenic Mountain Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Shannon Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "South Texas Health System",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St David\\'s Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St David\\'s South Austin Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Joseph Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Luke\\'s Sugar Land Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "St Luke\\'s the Woodlands Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Starr County Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Arlington Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Harris Methodist Fort Worth",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Harris Methodist Hospital Alliance",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Harris Methodist Hospital Southwest F",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Harris Methodist Hospital Stephenvill",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Harris Methodist Hurst-Euless-Bedford",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Hospital Frisco",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Hospital Mansfield",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Huguley Hospital Fort Worth South",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Presbyterian Hospital Allen",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Presbyterian Hospital Dallas",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Presbyterian Hospital Denton",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Presbyterian Hospital Flower Mound",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Presbyterian Hospital Plano",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texas Health Presbyterian Hospital Rockwall",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Texoma Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "The Hospitals of Providence - East Campus",
+      "birthing_friendly": true
+    },
+    {
+      "name": "The Hospitals of Providence - Memorial Campus",
+      "birthing_friendly": true
+    },
+    {
+      "name": "The Hospitals of Providence Transmountain Campus",
+      "birthing_friendly": true
+    },
+    {
+      "name": "The Medical Center of Southeast Texas",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Titus Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "United Regional Health Care System",
+      "birthing_friendly": true
+    },
+    {
+      "name": "University Health System",
+      "birthing_friendly": true
+    },
+    {
+      "name": "University Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "University Medical Center of El Paso",
+      "birthing_friendly": true
+    },
+    {
+      "name": "University of Texas Medical Branch Galveston",
+      "birthing_friendly": true
+    },
+    {
+      "name": "UT Health East Texas Athens Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "UT Health East Texas Henderson Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "UT Health East Texas Jacksonville Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "UT Health East Texas Tyler Regional Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "UT of Texas  Southwestern University Hospital - William P. Clements Jr.",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Uvalde Memorial Hospital",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Val Verde Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Valley Baptist Medical Center- Brownsville",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Valley Regional Medical Center",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Vhs Harlingen Hospital Company LLC",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Womans Hospital of Texas,the",
+      "birthing_friendly": true
+    },
+    {
+      "name": "Woodland Heights Medical Center",
+      "birthing_friendly": true
+    }
+  ]
+}

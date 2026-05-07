@@ -3,8 +3,57 @@
 const API_BASE = "http://localhost:8000";   // update if backend runs on a different port
 
 /* ── index.html ── */
+let HOSPITALS_BY_STATE = null;
+
+async function loadHospitals() {
+    try {
+        const res = await fetch("data/hospitals_ny_tx.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        HOSPITALS_BY_STATE = await res.json();
+    } catch (err) {
+        console.error("[ECHO] failed to load hospitals_ny_tx.json", err);
+        showError("Could not load hospital list. Refresh the page or check your connection.");
+    }
+}
+
+function populateHospitalsFor(state) {
+    const select = document.getElementById("hospital_name");
+    if (!select) return;
+    select.innerHTML = "";
+    if (!state || !HOSPITALS_BY_STATE || !HOSPITALS_BY_STATE[state]) {
+        const opt = document.createElement("option");
+        opt.value = "";
+        opt.disabled = true;
+        opt.selected = true;
+        opt.textContent = "Select state first...";
+        select.appendChild(opt);
+        select.disabled = true;
+        return;
+    }
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    placeholder.textContent = "Select hospital...";
+    select.appendChild(placeholder);
+    for (const h of HOSPITALS_BY_STATE[state]) {
+        const opt = document.createElement("option");
+        opt.value = h.name;
+        opt.textContent = h.name;
+        select.appendChild(opt);
+    }
+    select.disabled = false;
+}
+
 const form = document.getElementById("echo-form");
 if (form) {
+    loadHospitals();
+
+    const stateEl = document.getElementById("state");
+    if (stateEl) {
+        stateEl.addEventListener("change", (e) => populateHospitalsFor(e.target.value));
+    }
+
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
         clearError();
@@ -25,6 +74,8 @@ if (form) {
             primary_language: document.getElementById("primary_language").value.trim(),
         };
 
+        console.log("[ECHO] submit handler fired", { payload });
+
         // client-side required-field check
         const missing = [];
         if (!Number.isFinite(payload.age)) missing.push("age");
@@ -39,6 +90,7 @@ if (form) {
         }
 
         try {
+            console.log("[ECHO] POST /generate-checklist", payload);
             const res = await fetch(`${API_BASE}/generate-checklist`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
