@@ -13,6 +13,7 @@ from typing import Any, Dict, List
 
 import anthropic
 
+from backend.constants import ANTHROPIC_MAX_TOKENS, ANTHROPIC_MODEL
 from backend.schemas import (
     ChecklistItem,
     ChecklistOutput,
@@ -24,9 +25,6 @@ from backend.schemas import (
 )
 
 logger = logging.getLogger(__name__)
-
-MODEL = "claude-sonnet-4-20250514"
-MAX_TOKENS = 2000
 
 _STATIC = Path(__file__).resolve().parent / "data" / "static"
 _FRAMING_PATH = _STATIC / "framing_library.json"
@@ -116,11 +114,16 @@ async def generate_checklist(scored_output: ScoredOutput) -> ChecklistOutput:
 
     client = anthropic.AsyncAnthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     message = await client.messages.create(
-        model=MODEL,
-        max_tokens=MAX_TOKENS,
+        model=ANTHROPIC_MODEL,
+        max_tokens=ANTHROPIC_MAX_TOKENS,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": _user_message(scored_output)}],
     )
+
+    if getattr(message, "stop_reason", None) == "max_tokens":
+        raise ValueError(
+            f"Output Generator: model response exceeded max_tokens={ANTHROPIC_MAX_TOKENS}"
+        )
 
     raw_text = message.content[0].text.strip()
     # strip markdown fences if the model wraps output
