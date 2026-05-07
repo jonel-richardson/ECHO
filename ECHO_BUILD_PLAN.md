@@ -144,7 +144,7 @@ Each subagent must:
 1. Receives ScoredOutput
 2. Loads matching framing copy from `framing_library.json` by patient identity dimensions
 3. Builds prompt using the Prompt Template (see CLAUDE.md)
-4. Calls Anthropic API: model = `claude-sonnet-4-20250514`, max_tokens = 2000, no streaming
+4. Calls Anthropic API: model = `claude-sonnet-4-20250514`, max_tokens = 8000, no streaming
 5. Parses and validates ChecklistOutput from response
 6. Every ChecklistItem must have: label, detail, action, source, confidence, priority_rank
 7. Returns ChecklistOutput

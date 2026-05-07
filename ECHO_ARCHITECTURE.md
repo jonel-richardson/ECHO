@@ -203,7 +203,7 @@ Mortality  Guideline   SDOH    Bundle  State Context
 - Receives ScoredOutput
 - Loads matching framing copy from `framing_library.json` by patient identity dimensions (N12)
 - Builds prompt and calls Anthropic API
-- Model: `claude-sonnet-4-20250514` | max_tokens: 2000 | no streaming
+- Model: `claude-sonnet-4-20250514` | max_tokens: 8000 | no streaming
 - Validates every ChecklistItem has all required fields
 - Returns ChecklistOutput
 

@@ -26,9 +26,12 @@ if (form) {
         };
 
         // client-side required-field check
-        const missing = Object.entries(payload)
-            .filter(([k, v]) => k !== "complications_flagged" && (v === "" || isNaN(v)))
-            .map(([k]) => k);
+        const missing = [];
+        if (!Number.isFinite(payload.age)) missing.push("age");
+        if (!Number.isFinite(payload.weeks_postpartum)) missing.push("weeks_postpartum");
+        ["race_ethnicity", "payer", "state", "hospital_name", "primary_language"].forEach((key) => {
+            if (!payload[key]) missing.push(key);
+        });
         if (missing.length) {
             setLoading(false);
             showError("Please fill in all required fields: " + missing.join(", "));
@@ -44,7 +47,7 @@ if (form) {
 
             if (!res.ok) {
                 const err = await res.json().catch(() => ({ detail: res.statusText }));
-                throw new Error(err.detail || "Server error");
+                throw new Error(err.error || err.detail || "Server error");
             }
 
             const data = await res.json();

@@ -111,6 +111,9 @@ async def run_pipeline(profile: PatientProfile) -> ChecklistOutput:
     except anthropic.APIError as exc:
         logger.exception("Anthropic API call failed")
         raise OrchestratorError(f"Anthropic API error: {exc}") from exc
+    except ValueError as exc:
+        logger.exception("Output generator validation failed")
+        raise OrchestratorError(f"Output generator validation failed: {exc}") from exc
 
     return checklist
 
